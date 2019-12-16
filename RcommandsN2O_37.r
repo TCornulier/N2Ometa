@@ -1,9 +1,22 @@
+# R code for the meta-analysis of fertiliser-induced N2O emissions by Hillier et al (2019)
+# Copyright (C) 2019  Thomas Cornulier <tomcor.abdn@gmail.com>
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# Major changes
 # change from v20: uses corrected data from Franck & Ulrike
 # change from v31: used different parametric approximation for DD effect
 # change from v32: removed M15 and M15b, replaced by M15c
 setwd("C:/Users/nhy577/Documents/_toma/CONSULTING/JonHillierN2O")
-# nice -n 19 R # launch R on catling
-# setwd("/home/nhy577/Documents/N2O") # catling path
+
 library(ggplot2)
 library(lattice)
 library(gplots)
@@ -1901,7 +1914,7 @@ pdf("GAM.M15coutputBayes_splines_Fig3_SE_restricted.pdf", width= 10, height= 8)
 	Nratmp<- plot(jamM15c, pages= 0, scale= 0, scheme= 2, se= se.par, select= 6, shade= T, ylab= "", xaxt= "n", xlab= "")
 	box()
 	axis(1, log(c(0, 5, 25, 100, 500, 2500) + 1) / 8, c(0, 5, 25, 100, 500, 2500))
-	mtext("N application rate", 1, 3)
+	mtext("N application rate (Kg, log scale)", 1, 3)
 	axis(3)
 	mtext("logNrate.scaled", 3, 3)
 	mtext("c)", 3, 3, adj= 0)
@@ -1914,7 +1927,7 @@ pdf("GAM.M15coutputBayes_splines_Fig3_SE_restricted.pdf", width= 10, height= 8)
 	polygon(x= c(Nratmp[[6]]$x, rev(Nratmp[[6]]$x)), y= c(Nratmp[[6]]$fit - Nratmp[[6]]$se, rev(Nratmp[[6]]$fit + Nratmp[[6]]$se)), col= grey(0.8), border= NA)
 	lines(Nratmp[[6]]$x, Nratmp[[6]]$fit)
 	box()
-	mtext("N application rate (linear scale)", 1, 3)
+	mtext("N application rate (Kg, linear scale)", 1, 3)
 	axis(1)
 	mtext("d)", 3, 3, adj= 0)
 	mtext("Effect of N rate", 2, 3)
@@ -1950,7 +1963,7 @@ pdf("GAM.M15coutputBayes_splines_Fig3_SE_unrestricted.pdf", width= 10, height= 8
 	Nratmp<- plot(jamM15c, pages= 0, scale= 0, scheme= 2, se= se.par, select= 6, shade= T, ylab= "", xaxt= "n", xlab= "")
 	box()
 	axis(1, log(c(0, 5, 25, 100, 500, 2500) + 1) / 8, c(0, 5, 25, 100, 500, 2500))
-	mtext("N application rate", 1, 3)
+	mtext("N application rate (Kg, log scale)", 1, 3)
 	axis(3)
 	mtext("logNrate.scaled", 3, 3)
 	mtext("c)", 3, 3, adj= 0)
@@ -1963,7 +1976,7 @@ pdf("GAM.M15coutputBayes_splines_Fig3_SE_unrestricted.pdf", width= 10, height= 8
 	polygon(x= c(Nratmp[[6]]$x, rev(Nratmp[[6]]$x)), y= c(Nratmp[[6]]$fit - Nratmp[[6]]$se, rev(Nratmp[[6]]$fit + Nratmp[[6]]$se)), col= grey(0.8), border= NA)
 	lines(Nratmp[[6]]$x, Nratmp[[6]]$fit)
 	box()
-	mtext("N application rate (linear scale)", 1, 3)
+	mtext("N application rate (Kg, linear scale)", 1, 3)
 	axis(1)
 	mtext("d)", 3, 3, adj= 0)
 	mtext("Effect of N rate", 2, 3)
@@ -2013,21 +2026,6 @@ jamM15c$coefficients[grep(" 53.42  -7.52200310 41220052003-10-152004-11-30", col
 # plot observed cumN2O ~ Nrate
 plot(dat.M15c$logN2O.cum.pos ~ dat.M15c$logNrate.scaled)
 
-
-
-
-
-# code to test predictions from the excel spreadsheet
-N.sq<- 1
-ND.M15c.test<- data.frame(Fert01= 1, lowNO3= 1, highNO3= 0, Grasslands = FALSE, 
-    SOC= 2, pH= 7.25, 
-    N.rate= 1000, DegDays.exp= 3832,
-    expand.grid(Clay= rep(15, l= N.sq), WetDays.exp= rep(30, l= N.sq)), studyID.f= unique(dat.M15c$studyID.f)) # all studyID.f
-ND.M15c.test<- df.M15c.complete(ND.M15c.test)
-
-ND.M15c.test.pred<- predict(jamM15c, newdata= ND.M15c.test, se.fit= F)
-mean(ND.M15c.test.pred)
-exp(mean(ND.M15c.test.pred))-1
 
 
 
