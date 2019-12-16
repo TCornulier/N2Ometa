@@ -1,5 +1,5 @@
 # N2Ometa
-R code for the meta-analysis of fertiliser-induced N2O emissions by Hillier et al (2019).
+R code and data for the meta-analysis of fertiliser-induced N2O emissions by Hillier et al (2019).
 
 Copyright (C) 2019  Thomas Cornulier <tomcor.abdn@gmail.com>.
 
