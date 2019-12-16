@@ -1,0 +1,176 @@
+####### Generate data sets with and without NAs (dummy imputed values for use with jagam to generate the right model matrix size)
+
+M3.vars<- c("logN2O.cum.pos", "logNdays.cent", "pH.cent", "pH.cent.3", "pH.cent.4", "pH.cent.5", "pH.cent.6", "pH.cent.2", "maincrop3", "logNrate.cent", "Bulk.density.imputed", "Fert01", "NO3.avail.v2", "studyID.f", "logSumPrecip.exp", "logDegDays.exp", "fGrasslands") #, "PosDDays.air.exp", "FrostDDays.soil.exp", "PosDDays.soil.exp", "logNrate.cent.N.appl1", "logNrate.cent.N.appl2.3", "logNrate.cent.N.appl4.", "N.appl.num", "Nuptake.group.num", "logFTCy.exp", "logCarbon"
+M3.vars.ph6<- c("logN2O.cum.pos", "logNdays.cent", paste("pH", 1:6, sep= ""), "maincrop3", "logNrate.cent", "Bulk.density.imputed", "Fert01", "NO3.avail.v2", "studyID.f", "logSumPrecip.exp", "logDegDays.exp", "fGrasslands") #, "PosDDays.air.exp", "FrostDDays.soil.exp", "PosDDays.soil.exp", "logNrate.cent.N.appl1", "logNrate.cent.N.appl2.3", "logNrate.cent.N.appl4.", "N.appl.num", "Nuptake.group.num", "logFTCy.exp", "logCarbon"
+sub.M3<- apply(dat[, c("logN2O.cum.pos", "logNdays.cent", "maincrop3", "logNrate.cent", "Bulk.density.imputed", "Fert01", "NO3.avail.v2", "studyID.f", "logWetDays.exp")], 1, FUN= function(x) !any(is.na(x))) # leave only variables for which NAs cannot be imputed, so that obs with missing data are removed
+table(sub.M3) 	# FALSE  TRUE 
+  				#   699  1990 
+dat.M3<- dat[sub.M3, M3.vars]
+dat.M3.dummy<- dat.M3 # for use with jagam to generate the right model matrix size
+
+dat.M3.ph6<- dat[sub.M3, M3.vars.ph6]
+dat.M3.dummy.ph6<- dat.M3.ph6 # for use with jagam to generate the right model matrix size
+
+# replace NAs by any value (here median of column)
+for(i in 1:ncol(dat.M3)){
+	if(is.numeric(dat.M3.dummy[, i])){ dat.M3.dummy[is.na(dat.M3.dummy[, i]), i]<- median(dat.M3.dummy[, i], na.rm= T) }
+	if(is.character(dat.M3.dummy[, i])){ dat.M3.dummy[is.na(dat.M3.dummy[, i]), i]<- median(dat.M3.dummy[, i], na.rm= T) }
+	if(is.factor(dat.M3.dummy[, i])){ dat.M3.dummy[is.na(dat.M3.dummy[, i]), i]<- median(as.character(dat.M3.dummy[, i]), na.rm= T) }
+	if(is.logical(dat.M3.dummy[, i])){ dat.M3.dummy[is.na(dat.M3.dummy[, i]), i]<- F }
+}
+
+#################### run JAGAM - Model M3 #####################
+pregam.M3<- jagam(formula= logN2O.cum.pos ~ Fert01 + logNrate.cent
+	+ Bulk.density.imputed + maincrop3 #+ Per2An + logFTCy.exp + Pre.Leg + logCarbon 
+	+ pH.cent + pH.cent.2 #+ pH.cent.3 + pH.cent.4 + pH.cent.5 + pH.cent.6
+ 	+ Bulk.density.imputed:Fert01 + maincrop3:Fert01 #+ Per2An:Fert01 + Pre.Leg:Fert01 
+ 	#+ logCarbon:Fert01 + logFTCy.exp:Fert01 
+ 	#+ logCarbon:NO3.avail:Fert01
+ 	+ s(logNdays.cent, by= fGrasslands, k= 8) # keep only grasslands distinct
+	+ ti(logSumPrecip.exp, k= 8) + ti(logDegDays.exp, k= 8) + ti(logSumPrecip.exp, logDegDays.exp, k= c(5, 5)) 
+	+ logSumPrecip.exp:Fert01 + logDegDays.exp:Fert01
+ 	+ s(logNrate.cent)#, Nuptake.group.num, k= c(8, 3))
+	+ ti(NO3.avail.v2, by= Fert01, k= c(6))
+	#+ NO3.avail.v2:logSumPrecip.exp:Fert01
+  	#+ ti(NO3.avail, N.appl.num, by= Fert01, k= c(6, 3)) 
+  	#+ s(NO3.avail, by= logNrate.cent.N.appl1, k= c(5)) 
+  	#+ s(NO3.avail, by= logNrate.cent.N.appl2.3, k= c(5)) 
+  	#+ s(NO3.avail, by= logNrate.cent.N.appl4., k= c(5))
+	#+ te(logWetDays.exp, Bulk.density.imputed, k= c(6, 8))
+ 	+ s(studyID.f, bs= "re"),
+ 	family= gaussian, data= dat.M3.dummy, file= "./JAGS/modelM3.txt", centred=TRUE, sp.prior = "gamma", diagonalize= FALSE)
+
+#################### correct JAGS data #####################
+# dim(pregam.M3$jags.data$X)
+# [1] 1898  555
+
+# identify number of fixed effects
+nfixed.M3<- rle(colnames(pregam.M3$jags.data$X)=="")$lengths[1] # run length encoding -> take first run of non-empty names (last is random effects)
+fixed.names.M3<- pregam.M3$pregam$term.names[1:nfixed.M3]
+
+# replace dummy values in model matrix by NA where they should be (according to dat.M3)
+for(i in M3.vars){
+	pregam.M3$jags.data$X[is.na(dat.M3[, i]), grep(i, colnames(pregam.M3$jags.data$X)[1:nfixed.M3])]<- NA
+}
+
+vars2impute<- apply(pregam.M3$jags.data$X[, 1:nfixed.M3], 2, FUN= function(x) any(is.na(x)))
+vars2impute.colIndex<- which(vars2impute)
+vars2impute.NMissing<- as.list(apply(pregam.M3$jags.data$X[, vars2impute.colIndex], 2, FUN= function(x) sum(is.na(x))))
+vars2impute.whichMissing<- data.frame(apply(pregam.M3$jags.data$X[, vars2impute.colIndex], 2, FUN= function(x) as.numeric(which(is.na(x)))))
+names(vars2impute.whichMissing)<- paste(sub(":", ".", colnames(vars2impute.whichMissing)), "whichMissing", sep= ".")
+names(vars2impute.NMissing)<- paste(sub(":", ".", names(vars2impute.NMissing)), "NMissing", sep= ".")
+
+pregam.M3$jags.data<- c(pregam.M3$jags.data, vars2impute.NMissing, vars2impute.whichMissing)#,
+# 	Pre.Leg.prop= list(as.vector(table(dat$Pre.Leg)/sum(!is.na(dat$Pre.Leg)))),
+# 	Per2An.prop= list(as.vector(table(dat$Per2An)/sum(!is.na(dat$Per2An)))))
+str(pregam.M3$jags.data)
+
+#################### correct JAGS model #####################
+cbind(colIndex= vars2impute.colIndex, NMissing= vars2impute.NMissing)
+#           colIndex NMissing
+# pH.cent   7        280     
+# pH.cent.2 8        280
+
+
+colnames(pregam.M3$jags.data$X)[22] == "Fert01:NO3.avail" # if FALSE, correct in code below
+
+
+#### NOT RUN ####
+  	# Missing data imputation with informative priors
+	for(i in 1:pH.cent.NMissing){ 
+		pH.tmp[i] ~ dbeta(1.3, 1.3) # pH.cent prior
+		X[pH.cent.whichMissing[i], 7] <- pH.tmp[i] * 4.5 - 2.5
+		X[pH.cent.whichMissing[i], 8] <- (pH.tmp[i] * 4.5 - 2.5)^2 # was a bug here, not corrected in stored output up to 12/02/2018 included
+	}
+#### END NOT RUN ####
+
+params <- c("b","rho","scale", "mu")
+chains <- 1
+iter <- 3000
+nb<- 2000
+
+Sys.time() # 
+
+jagsM3 <- jags(model.file = "./JAGS/modelM3_NAimputation.txt", data = pregam.M3$jags.data,
+              parameters.to.save = params, inits = list(pregam.M3$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 2)
+Sys.time() #  
+# about 6h for compiling + 3000 iter
+Sys.time()
+jagsM3.2 <- update(jagsM3, 3000)
+Sys.time() # about 6 h
+Sys.time()
+jagsM3.3 <- update(jagsM3.2, 6000)
+Sys.time() # about 12h
+
+
+jagsM3.c1234<- jagsM3.3
+jagsM3.c1234$BUGSoutput$sims.list<- mapply(rbind, jagsM3$BUGSoutput$sims.list, jagsM3.2$BUGSoutput$sims.list, jagsM3.3$BUGSoutput$sims.list)
+jagsM3.c1234$BUGSoutput$sims.array<- abind(jagsM3$BUGSoutput$sims.array, jagsM3.2$BUGSoutput$sims.array, jagsM3.3$BUGSoutput$sims.array, along= 1)
+jagsM3.c1234$n.iter<- 12000
+jagsM3.c1234$BUGSoutput$n.iter<- 12000
+jagsM3.c1234$BUGSoutput$n.burnin<- 2000
+jagsM3.c1234$BUGSoutput$n.keep<- 5000
+jagsM3.c1234$BUGSoutput$n.sims<- 5000
+samM3<- jags2sam(jagsM3.c1234)
+jamM3<- sim2jam(samM3,pregam.M3$pregam)
+
+pdf("GAM.M3outputBayes_splines.pdf")
+plot(jamM3, pages= 0, scale= 0, scheme= 2)
+dev.off()
+
+dimnames(jagsM3.c1234$BUGSoutput$sims.array)[[3]][1:nfixed.M3]<- fixed.names.M3
+
+jagsM3.mcmc <- as.mcmc(jagsM3.c1234)
+
+summ.M3<- summary(jagsM3.mcmc[[1]][, fixed.names.M3], quantiles = c(0.025, 0.5, 0.975))
+summ.M3
+test.M3<- matrix(0 < summ.M3$quantiles[, "2.5%"] | 0 > summ.M3$quantiles[, "97.5%"])
+data.frame(fixed.names.M3, test.M3)
+
+# plot pH effect
+M3.pH.coef<- apply(jagsM3.mcmc[[1]][, c("(Intercept)", "Fert01", "pH.cent", "pH.cent.2")], 2, mean)
+M3.pH.coef.vcv<- cov(jagsM3.mcmc[[1]][, c("(Intercept)", "Fert01", "pH.cent", "pH.cent.2")])
+range(dat$pH, na.rm= T)
+# [1] 3.3 8.7
+pH.seq<- seq(3.3, 8.7, l= 50)
+pH.pred<- cbind(1, 1, (pH.seq-7), (pH.seq-7)^2) %*% M3.pH.coef
+plot(pH.seq, pH.pred, type= "l")
+require(MASS)
+M3.pH.coef.sim<- t(mvrnorm(n = 1000, mu= M3.pH.coef, Sigma= M3.pH.coef.vcv))
+pH.pred.sim<- cbind(1, 1, (pH.seq-7), (pH.seq-7)^2) %*% M3.pH.coef.sim
+matplot(pH.seq, pH.pred.sim, type= "l", col= rgb(0.35, 0.35, 0.35, alpha= 0.15), lty= 1)
+lines(pH.seq, pH.pred, lwd= 2)
+
+# covariation between logCarbon and Bulk.density
+par(mfrow= c(1, 2))
+plot(as.matrix(dat[, c("logCarbon", "Bulk.density.imputed")]), main= "Data", col= rgb(0, 0, 0, alpha= 0.35))
+plot(as.matrix(jagsM3.mcmc[[1]][, c("logCarbon", "Bulk.density.imputed")]), main = "Posterior of coefficients", asp= 1, col= rgb(0, 0, 0, alpha= 0.35))
+
+pdf("GAM.M3outputBayes_traces_fixed.pdf", width= 7, height= 21)
+xyplot(jagsM3.mcmc[[1]][, fixed.names.M3])
+dev.off()
+pdf("GAM.M3outputBayes_densityplots_fixed.pdf", width= 7, height= 15)
+densityplot(jagsM3.mcmc[[1]][, fixed.names.M3])
+dev.off()
+
+N.mu<- pregam.M3$jags.data$n # number of predicted values (number of observations)
+M3.predicted<- apply(jagsM3.mcmc[[1]][, paste("mu[", 1:N.mu, "]", sep= "")], 2, mean) # extract posterior mean of predicted values (on log scale)
+M3.residual<- M3.predicted - pregam.M3$jags.data$y # compute residual's posterior mean
+M3.observed<- pregam.M3$jags.data$y
+
+par(mfrow= c(2, 2))
+# fitted ~ observed
+plot(M3.observed, M3.predicted, col= rgb(0, 0, 0, alpha= 0.35)) # overfitting
+abline(0, 1, col= 2)
+cor(M3.observed, M3.predicted) # 0.9528323
+# residual ~ fitted
+plot(M3.residual ~ M3.predicted, col= rgb(0, 0, 0, alpha= 0.35)) # underestimation of low values and high values
+abline(h= 0, col= 2)
+# residual ~ observed
+plot(M3.residual ~ M3.observed, col= rgb(0, 0, 0, alpha= 0.35)) # overestimation of low values
+abline(h= 0, col= 2)
+
+
+

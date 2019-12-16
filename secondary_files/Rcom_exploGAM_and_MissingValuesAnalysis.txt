@@ -1,0 +1,71 @@
+rm(Hanmod.1)
+Hanmod.1<- gam(logN2O.cum.pos ~ CF + s(logNdays.cent, by= maincrop6) + pH.cent + pH.cent.sq + s(Prec.an.average) + Temp.an.avg 
+ 	+ logCarbon + maincrop6 + Pre.Leg + Per2An + logNrate.cent + Bulk.density.imputed
+ 	+ pH.cent:Fert01 + pH.cent.sq:Fert01 + s(Prec.an.average, by= Fert01) + Temp.an.avg:Fert01 + logCarbon:Fert01 
+ 	+ maincrop6:Fert01 + Bulk.density.imputed:Fert01 + Pre.Leg:Fert01 + Per2An:Fert01 
+ 	+ NO3.avail:Fert01 + logCarbon:NO3.avail:Fert01 +  + s(Prec.an.average, NO3.avail, by= Fert01)
+ 	+ s(logNdays.cent, NO3.avail, by= logNrate.cent.N.appl1) 
+ 	+ s(logNdays.cent, NO3.avail, by= logNrate.cent.N.appl2.3) 
+ 	+ s(logNdays.cent, NO3.avail, by= logNrate.cent.N.appl4.)
+	+ te(Prec.an.average, Bulk.density.imputed) + s(logNrate.cent, by= Nuptake.group)
+  	+ s(fPub.N, bs= "re"),
+	family= gaussian, data= dat)
+
+summary(Hanmod.1)
+par(mfrow= c(2, 2)); gam.check(Hanmod.1)
+plot(Hanmod.1, pages= 1, scale= 0, scheme= 2)
+pdf("GAM1output.pdf")
+plot(Hanmod.1, pages= 0, scale= 0, scheme= 2)
+dev.off()
+
+
+# check prevalence of missing values
+apply(dat[, names(Hanmod.1$model)], 2, FUN= function(x) sum(is.na(x)))
+
+# check range of values
+tmp<- dat[, names(Hanmod.1$model)]
+apply(tmp[unlist(lapply(dat, class))[names(Hanmod.1$model)] %in% c("numeric", "integer")], 2, FUN= function(x) range(x, na.rm= T))
+
+summary(dat[, names(Hanmod.1$model)])
+heatmap(as.matrix(is.na((dat[, names(Hanmod.1$model)])))+1)
+
+# Handling of missing values
+## - logN2O.cum (59): discard obs
+## - maincrop6 (94): discard obs?
+## - N03.avail (294): complex - discard obs
+## - logNdays (26): complex - discard obs
+## - N.rate.N.appl (153): complex - discard obs unless safe assumption can be made?
+## - Bulk.density.imputed (12): complex due to te() term -> discard obs
+# - logCarbon (721): KEY. Impute using frequency distribution in data as prior (assume low amount if unreported)
+# - Pre.leg (810): KEY. impute using distribution in data as prior (categorical FALSE:1810; TRUE :128)
+# - Per2An (685): KEY. impute using distribution in data as prior (categorical FALSE:1895; TRUE :168)
+# - pH (431): s() term. KEY. Impute using informative prior (later). PROBLEM: highly non-linear effect with a suggested spike in emissions around pH 6 according to first exploratory models (may be quite unreliable)
+
+# 59+94+294+26+153+12= 638
+
+# initial sample size is 748 without missing data imputation (72% obs lost)
+datdummy<- dat
+datdummy$logCarbon[is.na(dat$logCarbon)]<- 999
+datdummy$Pre.Leg[is.na(dat$Pre.Leg)]<- F
+datdummy$Per2An[is.na(dat$Per2An)]<- F
+# above increases sample size to 1127
+datdummy$Prec.an.average[is.na(dat$Prec.an.average)]<- 999
+datdummy$Temp.an.avg[is.na(dat$Temp.an.avg)]<- 999 
+# above increases sample size to 1873
+datdummy$pH.cent[is.na(dat$pH.cent)]<- 999 # increases sample size to 2129 (21% obs lost)
+nrow(dat) # 2689
+# check prevalence of missing values
+apply(datdummy[, names(Hanmod.1$model)], 2, FUN= function(x) sum(is.na(x)))
+
+
+nrow(jagam(formula= logN2O.cum.pos ~ CF + s(logNdays.cent, by= maincrop6) + s(pH.cent) + s(Prec.an.average) + Temp.an.avg 
+ 	+ logCarbon + maincrop6 + Pre.Leg + Per2An + logNrate.cent + Bulk.density.imputed
+ 	+ s(pH.cent, by= Fert01) + s(Prec.an.average, by= Fert01) + Temp.an.avg:Fert01 + logCarbon:Fert01 
+ 	+ maincrop6:Fert01 + Bulk.density.imputed:Fert01 + Pre.Leg:Fert01 + Per2An:Fert01 
+ 	+ NO3.avail:Fert01 + logCarbon:NO3.avail:Fert01 +  + te(Prec.an.average, NO3.avail, by= Fert01)
+ 	+ te(logNdays.cent, NO3.avail, by= logNrate.cent.N.appl1) 
+ 	+ te(logNdays.cent, NO3.avail, by= logNrate.cent.N.appl2.3) 
+ 	+ te(logNdays.cent, NO3.avail, by= logNrate.cent.N.appl4.)
+	+ te(Prec.an.average, Bulk.density.imputed) + s(logNrate.cent, by= Nuptake.group)
+ 	+ s(fPub.N, bs= "re"),
+ 	family= gaussian, data= datdummy, file= "./JAGS/model2discard.txt", centred= TRUE, sp.prior = "gamma", diagonalize= FALSE)$jags.data$X)

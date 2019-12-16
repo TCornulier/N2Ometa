@@ -1,0 +1,24 @@
+Nslots<- 15
+M10.residual.0
+M10.pred.slots<- cut(M10.predicted.0, Nslots)
+M10.var<- tapply(M10.residual.1, M10.pred.slots, var)
+par(mfrow= c(3, 3))
+plot(log(M10.var))
+plot(M10.var ~ I((1:Nslots)^3))
+plot(M10.var ~ I((1:Nslots)^2))
+plot(M10.var ~ I((1:Nslots)^1))
+plot(M10.var ~ I((1:Nslots)^(1/2)))
+plot(M10.var ~ I((1:Nslots)^(1/4)))
+plot(M10.var ~ I((1:Nslots)^(1/7)))
+plot(M10.var ~ I((1:Nslots)^(1/10)))
+plot(M10.var ~ I((1:Nslots)^(1/20)))
+
+par(mfrow= c(4, 2))
+for(i in c(6, 8, 10, 15)){
+	Nslots<- i
+	M10.residual.0
+	M10.pred.slots<- cut(M10.predicted.0, Nslots)
+	M10.var<- tapply(M10.residual.1, M10.pred.slots, var)
+	plot(log(M10.var))
+	plot(M10.var ~ I((1:Nslots)^2))
+}

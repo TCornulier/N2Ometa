@@ -1,0 +1,12 @@
+Main Crop_GROUP	N uptake group
+vegetables	3
+cereals	2
+grassland/pasture/steppe/savanah	2
+rice	2
+"row crops (sugarcane, Cotton, etc.)"	2
+bare/fallow	1
+perennials (trees/forests/plantations)	2
+legumes	1
+cereal-cereal/legume Rotations	2
+rotation	2
+NA	NA

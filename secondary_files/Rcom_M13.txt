@@ -1,0 +1,266 @@
+####### Generate data sets with and without NAs (dummy imputed values for use with jagam to generate the right model matrix size)
+
+M13.vars<- c("logN2O.cum.pos", "pH.cent", "Grasslands", "logNrate.cent.v2", "logclay.imp.ct", "Fert01", "NO3.avail.v3", "studyID.f", "logDegDays.exp.compact", "NO3.avail.f3", "logSumPrecip.exp.compact", "logWetDays.exp.compact", "logCarbon", "logNrate.cent.lowNO3", "logNrate.cent.highNO3") #, "PosDDays.air.exp", "FrostDDays.soil.exp", "PosDDays.soil.exp", "Nuptake.group.num", "logFTCy.exp", "logAvPrecip.exp.ct", "AvDegDays.exp.ct"
+sub.M13<- apply(dat[, c("logN2O.cum.pos", "logNrate.cent.v2", "Fert01", "NO3.avail.v3", "studyID.f", "logWetDays.exp", "logclay.imp")], 1, FUN= function(x) !any(is.na(x))) # leave only variables for which NAs cannot be imputed, so that obs with missing data are removed # , "Bulk.density.imputed"
+table(sub.M13) 	# FALSE  TRUE 
+  				#   486  2244 
+dat.M13<- dat[sub.M13, M13.vars]
+dat.M13.dummy<- dat.M13 # for use with jagam to generate the right model matrix size
+
+# replace NAs by any value (here median of column)
+for(i in 1:ncol(dat.M13)){
+	if(is.numeric(dat.M13.dummy[, i])){ dat.M13.dummy[is.na(dat.M13.dummy[, i]), i]<- median(dat.M13.dummy[, i], na.rm= T) }
+	if(is.character(dat.M13.dummy[, i])){ dat.M13.dummy[is.na(dat.M13.dummy[, i]), i]<- median(dat.M13.dummy[, i], na.rm= T) }
+	if(is.factor(dat.M13.dummy[, i])){ dat.M13.dummy[is.na(dat.M13.dummy[, i]), i]<- median(as.character(dat.M13.dummy[, i]), na.rm= T) }
+	if(is.logical(dat.M13.dummy[, i])){ dat.M13.dummy[is.na(dat.M13.dummy[, i]), i]<- F }
+}
+
+#################### run JAGAM - Model M13 #####################
+pregam.M13<- jagam(formula= logN2O.cum.pos ~ Fert01 + Grasslands #Fert01 unnecessary due to 'by= Fert01' below?
+ 	+ Grasslands:Fert01 
+ 	+ logCarbon
+	+ s(pH.cent, bs= "cr", k= 9)
+	+ te(logclay.imp.ct, logWetDays.exp.compact, k= c(5, 5))
+# 	+ te(logclay.imp.ct, logWetDays.exp.compact, k= c(5, 5), by= logNrate.cent.lowNO3)
+	+ te(logclay.imp.ct, logWetDays.exp.compact, k= c(5, 5), by= logNrate.cent.highNO3)
+	+ s(logDegDays.exp.compact, k= 8) 
+	+ s(logNrate.cent.v2, by= Fert01)
+ 	+ s(studyID.f, bs= "re"),
+ 	family= gaussian, data= dat.M13.dummy, file= "./JAGS/modelM13.txt", centred=TRUE, sp.prior = "gamma", diagonalize= FALSE)
+
+#################### correct JAGS data #####################
+# identify number of fixed effects
+nfixed.M13<- rle(colnames(pregam.M13$jags.data$X)=="")$lengths[1] # run length encoding -> take first run of non-empty names (last is random effects)
+fixed.names.M13<- pregam.M13$pregam$term.names[1:nfixed.M13]
+
+# replace dummy values in model matrix by NA where they should be (according to dat.M13)
+for(i in M13.vars){
+ 	pregam.M13$jags.data$X[is.na(dat.M13[, i]), grep(i, pregam.M13$pregam$term.names)]<- NA
+}
+
+# vars2impute<- apply(pregam.M13$jags.data$X[, 1:nfixed], 2, FUN= function(x) any(is.na(x)))
+vars2impute<- apply(pregam.M13$jags.data$X, 2, FUN= function(x) any(is.na(x)))
+vars2impute.colIndex<- which(vars2impute)
+vars2impute.NMissing<- as.list(apply(pregam.M13$jags.data$X[, vars2impute.colIndex], 2, FUN= function(x) sum(is.na(x))))
+vars2impute.whichMissing<- list(apply(pregam.M13$jags.data$X[, vars2impute.colIndex], 2, FUN= function(x) as.numeric(which(is.na(x)))))[[1]]
+names(vars2impute.whichMissing)<- paste(gsub(":", ".", gsub("(", ".", gsub(")", "", pregam.M13$pregam$term.names[vars2impute.colIndex], fixed= T), fixed= T)), "whichMissing", sep= ".")
+names(vars2impute.NMissing)<- paste(gsub(":", ".", gsub("(", ".", gsub(")", "", pregam.M13$pregam$term.names[vars2impute.colIndex], fixed= T), fixed= T)), "NMissing", sep= ".")
+
+# create lookup table for pH.cent spline bases coords imputation
+pH.cent.cat<- cut(dat.M13$pH.cent, breaks= c(-4, -2, -1.5, -1, -0.5, 0, 0.5, 1, 2)) # create 8 classes of pH.cent
+pH.cent.cat.prop<- round(table(pH.cent.cat)/sum(table(pH.cent.cat)), 2) # proportion of data per class
+pH.cent.ref.index<- unlist(lapply(as.list(round(tapply(dat.M13$pH.cent, pH.cent.cat, mean, na.rm= T), 1)), FUN= function(x) which.min(abs(dat.M13$pH.cent - x)))) # index of pH.cent value closest to class mean
+pH.cent.lookup<- pregam.M13$jags.data$X[pH.cent.ref.index, grep("pH.cent", pregam.M13$pregam$term.names)]
+
+
+pregam.M13$jags.data<- c(pregam.M13$jags.data, vars2impute.NMissing, vars2impute.whichMissing, Grasslands.prop= list(as.vector(table(dat$Grasslands)/sum(!is.na(dat$Grasslands)))), list(pH.cent.cat.prop= as.vector(pH.cent.cat.prop)), list(pH.cent.lookup= as.matrix(pH.cent.lookup)))#,
+str(pregam.M13$jags.data)
+
+# let JAGS auto-initialize the parametric coefficients so that each chain starts from a different point
+# (in order to investigate identifiability issues with the intercept for fertilizer treatment)
+pregam.M13$jags.ini$b[1:nfixed.M13]<- NA
+
+#################### correct JAGS model #####################
+data.frame(colIndex= vars2impute.colIndex, NMissing= unlist(vars2impute.NMissing))
+#                      colIndex NMissing
+# logCarbon.NMissing          4      545
+# s.pH.cent.1.NMissing        6      261
+# s.pH.cent.2.NMissing        7      261
+# s.pH.cent.3.NMissing        8      261
+# s.pH.cent.4.NMissing        9      261
+# s.pH.cent.5.NMissing       10      261
+# s.pH.cent.6.NMissing       11      261
+# s.pH.cent.7.NMissing       12      261
+# s.pH.cent.8.NMissing       13      261
+
+#### NOT RUN ####
+  	# Missing data imputation with informative priors
+ 	for(i in 1:logCarbon.NMissing){ 
+ 		logC.tmp[i] ~ dnorm(0.485,1.572) # logCarbon prior
+ 		X[logCarbon.whichMissing[i], 4] <- logC.tmp[i]
+ 	}
+	for(i in 1:s.pH.cent.1.NMissing){ 
+		pH.index[i] ~ dcat(pH.cent.cat.prop[]) # pH.cent prior
+		X[s.pH.cent.1.whichMissing[i], 6:13]  <- pH.cent.lookup[pH.index[i], ]
+	}
+# 	for(i in 1:GrasslandsTRUE.NMissing){ 
+# 		Grasslands.tmp[i] ~ dcat(Grasslands.prop) # Grasslands.TRUE prior
+# 		X[GrasslandsTRUE.whichMissing[i], 3] <- Grasslands.tmp[i] - 1
+# 		X[GrasslandsTRUE.whichMissing[i], 5] <- X[GrasslandsTRUE.whichMissing[i], 3] * X[GrasslandsTRUE.whichMissing[i], 2] # Fert01:Grasslands.TRUE prior
+# 	}
+	
+#### END NOT RUN ####
+
+params <- c("b","rho","scale", "mu", "pH.index", "Grasslands.tmp", "tau")# , "logC.tmp"
+chains <- 1
+iter <- 2000
+nb<- 1000
+
+Sys.time() # 
+jagsM13.1 <- jags(model.file = "./JAGS/modelM13_NAimputation.txt", data = pregam.M13$jags.data,
+              parameters.to.save = params, inits = list(pregam.M13$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 1, DIC= T, jags.seed= 34)
+save(jagsM13.1, file= "jagsM13_1.RData")
+Sys.time() # about 45 h for compiling + 2000 iter
+jagsM13.2 <- jags(model.file = "./JAGS/modelM13_NAimputation.txt", data = pregam.M13$jags.data,
+              parameters.to.save = params, inits = list(pregam.M13$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 1, DIC= T, jags.seed= 83)
+save(jagsM13.2, file= "jagsM13_2.RData")
+Sys.time() # about 45 h for compiling + 2000 iter
+jagsM13.3 <- jags(model.file = "./JAGS/modelM13_NAimputation.txt", data = pregam.M13$jags.data,
+              parameters.to.save = params, inits = list(pregam.M13$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 1, DIC= T, jags.seed= 57)
+save(jagsM13.3, file= "jagsM13_3.RData")
+Sys.time() # about 45 h for compiling + 2000 iter
+jagsM13.4 <- jags(model.file = "./JAGS/modelM13_NAimputation.txt", data = pregam.M13$jags.data,
+              parameters.to.save = params, inits = list(pregam.M13$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 1, DIC= T, jags.seed= 389)
+save(jagsM13.4, file= "jagsM13_4.RData")
+Sys.time() # about 45 h for compiling + 2000 iter
+jagsM13.5 <- jags(model.file = "./JAGS/modelM13_NAimputation.txt", data = pregam.M13$jags.data,
+              parameters.to.save = params, inits = list(pregam.M13$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 1, DIC= T, jags.seed= 124)
+save(jagsM13.5, file= "jagsM13_5.RData")
+Sys.time() # about 45 h for compiling + 2000 iter
+jagsM13.6 <- jags(model.file = "./JAGS/modelM13_NAimputation.txt", data = pregam.M13$jags.data,
+              parameters.to.save = params, inits = list(pregam.M13$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 1, DIC= T, jags.seed= 720)
+save(jagsM13.6, file= "jagsM13_6.RData")
+Sys.time() # about 45 h for compiling + 2000 iter
+
+load("jagsM13_1.RData"); load("jagsM13_2.RData"); load("jagsM13_3.RData"); load("jagsM13_4.RData"); load("jagsM13_5.RData"); load("jagsM13_6.RData")
+
+jagsM13.6c<- jagsM13.1
+jagsM13.6c$BUGSoutput$sims.list<- mapply(rbind, jagsM13.1$BUGSoutput$sims.list, jagsM13.2$BUGSoutput$sims.list, jagsM13.3$BUGSoutput$sims.list, jagsM13.4$BUGSoutput$sims.list, jagsM13.5$BUGSoutput$sims.list, jagsM13.6$BUGSoutput$sims.list)
+jagsM13.6c$BUGSoutput$sims.array<- abind(	jagsM13.1$BUGSoutput$sims.array, 
+											jagsM13.2$BUGSoutput$sims.array,
+											jagsM13.3$BUGSoutput$sims.array,
+											jagsM13.4$BUGSoutput$sims.array,
+											jagsM13.5$BUGSoutput$sims.array,
+											jagsM13.6$BUGSoutput$sims.array, along= 1)
+
+jagsM13.6c$n.iter<- iter*6
+jagsM13.6c$BUGSoutput$n.iter<- iter*6
+jagsM13.6c$BUGSoutput$n.burnin<- nb*6
+jagsM13.6c$BUGSoutput$n.keep<- (iter-nb)*6
+jagsM13.6c$BUGSoutput$n.sims<- (iter-nb)*6
+
+
+samM13<- jags2sam(jagsM13.6c)
+jamM13<- sim2jam(samM13,pregam.M13$pregam)
+
+pdf("GAM.M13outputBayes_splines.pdf")
+plot(jamM13, pages= 0, scale= 0, scheme= 2)
+dev.off()
+
+fx.index.M13<- which(dimnames(jagsM13.6c$BUGSoutput$sims.array)[[3]] %in% paste("b[", 1:nfixed.M13, "]", sep= ""))
+dimnames(jagsM13.6c$BUGSoutput$sims.array)[[3]][fx.index.M13]<- fixed.names.M13
+
+jagsM13.mcmc <- as.mcmc(jagsM13.6c)
+
+summ.M13<- summary(jagsM13.mcmc[[1]][, fixed.names.M13], quantiles = c(0.025, 0.5, 0.975))
+summ.M13
+test.M13<- matrix(0 < summ.M13$quantiles[, "2.5%"] | 0 > summ.M13$quantiles[, "97.5%"])
+data.frame(fixed.names.M13, test.M13)
+
+pdf("GAM.M13outputBayes_traces_fixed.pdf", width= 7, height= 21)
+	xyplot(jagsM13.mcmc[[1]][, fixed.names.M13])
+	dev.off()
+	pdf("GAM.M13outputBayes_densityplots_fixed.pdf", width= 7, height= 15)
+	densityplot(jagsM13.mcmc[[1]][, fixed.names.M13])
+dev.off()
+
+pdf("GAM.M13outputBayes_traces_SplineCoefs.pdf", width= 21, height= 10)
+	NsplineCoefs.M13<- length(grep("b[", colnames(jagsM13.mcmc[[1]]), fixed= T)) + length(fixed.names.M13) - length(grep("studyID", pregam.M13$pregam$term.names))
+	SplCoefsNames.M13<- paste("b[", (length(fixed.names.M13)+1):(NsplineCoefs.M13), "]", sep= "")
+	datmp.M13<- jagsM13.mcmc[[1]][, SplCoefsNames.M13]
+	colnames(datmp.M13)<- pregam.M13$pregam$term.names[(length(fixed.names.M13)+1):(NsplineCoefs.M13)]
+	xyplot(datmp.M13, layout= c(5, 5, ceiling(length(SplCoefsNames.M13)/25)))
+dev.off()
+rm(datmp.M13)
+
+pdf("GAM.M13outputBayes_traces_MissingValues.pdf", width= 21, height= 10)
+	NmuCoefs.M13<- length(grep("studyID", pregam.M13$pregam$term.names))
+	datmp.mu.M13<- jagsM13.mcmc[[1]][, paste("b[", grep("studyID", pregam.M13$pregam$term.names), "]", sep= "")]
+	colnames(datmp.mu.M13)<- pregam.M13$pregam$term.names[grep("studyID", pregam.M13$pregam$term.names)]
+	xyplot(datmp.mu.M13, layout= c(5, 5, ceiling(NmuCoefs.M13/25)))
+dev.off()
+rm(datmp.mu.M13)
+
+N.mu<- pregam.M13$jags.data$n # number of predicted values (number of observations)
+M13.predicted.1<- apply(jagsM13.mcmc[[1]][, paste("mu[", 1:N.mu, "]", sep= "")], 2, mean) # extract posterior mean of predicted values (on log scale)
+# level 1 residuals (around random effects)
+M13.observed<- pregam.M13$jags.data$y
+M13.residual.1<- M13.observed - M13.predicted.1 # residual's posterior mean
+# random effects
+M13.re.coef<- apply(jagsM13.mcmc[[1]][, paste("b[", grep("studyID", pregam.M13$pregam$term.names), "]", sep= "")], 2, mean)
+M13.re.pred<- pregam.M13$pregam$X[, grep("studyID", pregam.M13$pregam$term.names)] %*% M13.re.coef
+# level 0 residuals (around fixed effects, adding studyID random effects)
+M13.predicted.0<- M13.predicted.1 - M13.re.pred
+M13.residual.0<- M13.observed - M13.predicted.0  # M13.residual.1 + M13.re.pred
+
+pdf("GAM.M13_StandardDiagnostics.pdf", width= 8, height= 6)
+	par(mfrow= c(2, 2))
+	# observed ~ fitted.0
+	plot(M13.predicted.0, M13.observed, col= rgb(0, 0, 0, alpha= 0.35))
+	abline(0, 1, col= 2)
+	cor(M13.observed, M13.predicted.0) # 0.9528323
+	# observed ~ fitted.1
+	plot(M13.predicted.1, M13.observed, col= rgb(0, 0, 0, alpha= 0.35)) # overfitting
+	abline(0, 1, col= 2)
+	cor(M13.observed, M13.predicted.1) # 0.9528323
+	# residual ~ fitted
+	plot(M13.residual.0 ~ M13.predicted.0, col= rgb(0, 0, 0, alpha= 0.35)) # underestimation of low values and high values
+	abline(h= 0, col= 2)
+	# distribution of random effects
+	M13.re<- apply(jagsM13.mcmc[[1]][, paste("b[", grep("studyID.f", colnames(pregam.M13$jags.data$X)), "]", sep= "")], 2, mean)
+	hist(M13.re, nclass= 25)
+dev.off()
+
+source("PredictorsList9.txt")
+
+pdf("GAM.M13Explo_ResidualsPredictors.pdf", width= 6, height= 6)
+	for(i in VOI2){
+		dat2plot<- data.frame(y= M13.residual.0, x= dat[sub.M13, i])
+		p<- ggplot(dat2plot, aes(y= y, x= x)) +
+		geom_point(col= rgb(0, 0, 0, 0.2)) +
+		xlab(i) + ylab("Model residuals") + ggtitle(i) +
+		geom_hline(yintercept= 0, col= "green") +
+		geom_smooth(col= "red", method= "loess", se= F, )
+		print(p)
+	}
+	for(i in groups){
+		dat2plot<- data.frame(y= M13.residual.0, x= factor(dat[sub.M13, i]))
+		p<- ggplot(dat2plot, aes(y= y, x= x)) +
+		geom_boxplot(col= rgb(0, 0, 0, 0.5)) +
+		geom_hline(yintercept= 0, col= "green") +
+		xlab(i) + ylab("Model residuals") + ggtitle(i) +
+		theme(axis.text.x=element_text(angle = -90, hjust = 0), plot.title = element_text(hjust = 0.5))
+		print(p)
+
+	}
+dev.off()
+
+pdf("GAM.M13Explo_ResidualsStructure.pdf", width= 12, height= 4.5)
+	dat2plot<- data.frame(M13.residual.0= M13.residual.0, M13.predicted.0= M13.predicted.0, Fertilizer= c("Control", "Fertilizer")[dat$Fert01[sub.M13]+1], logNdays= dat$logNdays[sub.M13], logN.rate= dat$logNrate.cent[sub.M13], NO3avail= c("lowNO3", "highNO3")[dat$highNO3[sub.M13]+1])
+		
+	p<- ggplot(dat2plot, aes(y= M13.residual.0, x= M13.predicted.0, colour= logNdays)) +
+		geom_point(alpha= 1, size= 1) +
+		facet_wrap(~ Fertilizer * NO3avail) +
+		xlab("Fitted values") + ylab("Model residuals")
+	print(p)
+
+	p<- ggplot(dat2plot, aes(y= M13.residual.0, x= M13.predicted.0, colour= logN.rate)) +
+		geom_point(alpha= 1, size= 1) +
+		facet_wrap(~ Fertilizer * NO3avail) +
+		xlab("Fitted values") + ylab("Model residuals")
+	print(p)
+
+dev.off()
+

@@ -1,0 +1,551 @@
+Fertilizer.type_rep	Fertilizer.type_GROUP	NO3.availability.proxy	NO3.avail.v2	NO3.avail.v3	NO3.avail.f3
+CK+P	Control	0	0	1	noFert
+CK+PK	Control	0	0	1	noFert
+control	Control	0	0	1	noFert
+control 	Control	0	0	1	noFert
+control (+ nitrapyrin; plus 22 kg N/ha as basedressing)	Control	0	0	1	noFert
+control (gets starter fertilizer)	Control	0	0	1	noFert
+control (plus 22 kg N/ha as basedressing)	Control	0	0	1	noFert
+control + drip irri.	Control	0	0	1	noFert
+control + furrow irri.	Control	0	0	1	noFert
+control furrow	Control	0	0	1	noFert
+control ridge	Control	0	0	1	noFert
+"control, continuous irri."	Control	0	0	1	noFert
+"control, intermitted irri."	Control	0	0	1	noFert
+control/starter	Control	0	0	1	noFert
+control+no plant	Control	0	0	1	noFert
+control+no straw+drainage+PK	Control	0	0	1	noFert
+control+no straw+flooding+PK	Control	0	0	1	noFert
+control+org	Control	0	0	1	noFert
+control+PK	Control	0	0	1	noFert
+control+residues	Control	0	0	1	noFert
+control+starter	Control	0	0	1	noFert
+control+straw+drainage+PK	Control	0	0	1	noFert
+control+straw+flooding+PK	Control	0	0	1	noFert
+control+water	Control	0	0	1	noFert
+control-burn	Control	0	0	1	noFert
+control-unburn	Control	0	0	1	noFert
+"DI irri, Control"	Control	0	0	1	noFert
+ECC alone	Control	0	0	1	noFert
+"F irri, control+PK"	Control	0	0	1	noFert
+"FDF irri, control+PK"	Control	0	0	1	noFert
+"FDFM irri, control+PK"	Control	0	0	1	noFert
+no fertilizer no straw tillage	Control	0	0	1	noFert
+"SDI irri, Control"	Control	0	0	1	noFert
+20 biochar	organic (high C-N ratio)	1	1	1	lowNO3
+40 biochar	organic (high C-N ratio)	1	1	1	lowNO3
+Alfalfa mulch	organic (high C-N ratio)	1	1	1	lowNO3
+Biochar	organic (high C-N ratio)	1	1	1	lowNO3
+biochar	organic (high C-N ratio)	1	1	1	lowNO3
+biochar +PK	organic (high C-N ratio)	1	1	1	lowNO3
+biochar(corn straw)+PK	organic (high C-N ratio)	1	1	1	lowNO3
+Biochar(wheat straw)	organic (high C-N ratio)	1	1	1	lowNO3
+Chinese medicine residue compost	organic (high C-N ratio)	1	1	1	lowNO3
+compost	organic (high C-N ratio)	1	1	1	lowNO3
+compost sludge	organic (high C-N ratio)	1	1	1	lowNO3
+Composted crop residues + sludge	organic (high C-N ratio)	1	1	1	lowNO3
+composted municipal solid waste	organic (high C-N ratio)	1	1	1	lowNO3
+Composted pig manure	organic (high C-N ratio)	1	1	1	lowNO3
+Composted poultry litter	organic (high C-N ratio)	1	1	1	lowNO3
+composting pig slurry fraction (CP)	organic (high C-N ratio)	1	1	1	lowNO3
+Crop residues	organic (high C-N ratio)	1	1	1	lowNO3
+dried pellets	organic (high C-N ratio)	1	1	1	lowNO3
+fallow res. Rattlebox	organic (high C-N ratio)	1	1	1	lowNO3
+fallow res. White hoary pea	organic (high C-N ratio)	1	1	1	lowNO3
+GM	organic (high C-N ratio)	1	1	1	lowNO3
+green manure	organic (high C-N ratio)	1	1	1	lowNO3
+Green waste compost (GWC)	organic (high C-N ratio)	1	1	1	lowNO3
+Milk vetch	organic (high C-N ratio)	1	1	1	lowNO3
+Milk vetch straw	organic (high C-N ratio)	1	1	1	lowNO3
+Mulch	organic (high C-N ratio)	1	1	1	lowNO3
+Municipal solid waste	organic (high C-N ratio)	1	1	1	lowNO3
+natural fallow	organic (high C-N ratio)	1	1	1	lowNO3
+oilcake	organic (high C-N ratio)	1	1	1	lowNO3
+old solid fraction	organic (high C-N ratio)	1	1	1	lowNO3
+rapeseed cake compost	organic (high C-N ratio)	1	1	1	lowNO3
+rice resid	organic (high C-N ratio)	1	1	1	lowNO3
+Straw +PK	organic (high C-N ratio)	1	1	1	lowNO3
+straw+manure	organic (high C-N ratio)	1	1	1	lowNO3
+Vetch	organic (high C-N ratio)	1	1	1	lowNO3
+wheat resid	organic (high C-N ratio)	1	1	1	lowNO3
+anaerobically digested pig slurry fraction	organic	2	2	1	lowNO3
+beef cattle	organic	2	2	1	lowNO3
+biogas waste	organic	2	2	1	lowNO3
+broiler litter	organic	2	2	1	lowNO3
+cattle farmyard manure	organic	2	2	1	lowNO3
+cattle grazing	organic	2	2	1	lowNO3
+Cattle manure	organic	2	2	1	lowNO3
+cattle manure	organic	2	2	1	lowNO3
+Cattle slurry	organic	2	2	1	lowNO3
+cattle slurry	organic	2	2	1	lowNO3
+chicken manure	organic	2	2	1	lowNO3
+chicken manure(OM)	organic	2	2	1	lowNO3
+cow slurry	organic	2	2	1	lowNO3
+digested pig slurry (DPS)	organic	2	2	1	lowNO3
+digested pig slurry (DPS) 	organic	2	2	1	lowNO3
+digested pig slurry (DPS) + drip irri.	organic	2	2	1	lowNO3
+digested pig slurry (DPS) + furrow irri.	organic	2	2	1	lowNO3
+farmyard manure	organic	2	2	1	lowNO3
+Feedlot manure	organic	2	2	1	lowNO3
+Feedlot manure (FLM)	organic	2	2	1	lowNO3
+FLM + GWC	organic	2	2	1	lowNO3
+FOM	organic	2	2	1	lowNO3
+fresh solid fraction	organic	2	2	1	lowNO3
+FYM	organic	2	2	1	lowNO3
+goat and hen manure	organic	2	2	1	lowNO3
+HOM	organic	2	2	1	lowNO3
+incorporated pig slurry	organic	2	2	1	lowNO3
+layer manure	organic	2	2	1	lowNO3
+Legume residue	organic	2	2	1	lowNO3
+legume residues	organic	2	2	1	lowNO3
+Legume-Acacia	organic	2	2	1	lowNO3
+Legume-Sesbania	organic	2	2	1	lowNO3
+liquid cattle slurry	organic	2	2	1	lowNO3
+liquid fraction	organic	2	2	1	lowNO3
+liquid sludge	organic	2	2	1	lowNO3
+liquid sludge (sewage)	organic	2	2	1	lowNO3
+manure	organic	2	2	1	lowNO3
+matured pig manure	organic	2	2	1	lowNO3
+OM	organic	2	2	1	lowNO3
+OM (commodity)	organic	2	2	1	lowNO3
+organic	organic	2	2	1	lowNO3
+Organic	organic	2	2	1	lowNO3
+organic F(chicken manure)	organic	2	2	1	lowNO3
+Organic F(pork manure)+PK	organic	2	2	1	lowNO3
+organic fertilizer	organic	2	2	1	lowNO3
+Organic fertilizer(OM)manure	organic	2	2	1	lowNO3
+Organic fertilizer+PK	organic	2	2	1	lowNO3
+Organic N-25%residues	organic	2	2	1	lowNO3
+PAM-sed fraction	organic	2	2	1	lowNO3
+PAM-sup fraction	organic	2	2	1	lowNO3
+pig manure compost	organic	2	2	1	lowNO3
+Pig slurry	organic	2	2	1	lowNO3
+pig slurry	organic	2	2	1	lowNO3
+pig slurry mixed with dicyandiamide	organic	2	2	1	lowNO3
+pig slurry+straw	organic	2	2	1	lowNO3
+poultry litter	organic	2	2	1	lowNO3
+Poultry litter	organic	2	2	1	lowNO3
+raw cattle slurry	organic	2	2	1	lowNO3
+Sewage sludge	organic	2	2	1	lowNO3
+sheep manure	organic	2	2	1	lowNO3
+slurry	organic	2	2	1	lowNO3
+surface applied pig slurry	organic	2	2	1	lowNO3
+swine effluent	organic	2	2	1	lowNO3
+Tibetan sheep dung	organic	2	2	1	lowNO3
+Untreated pig slurry	organic	2	2	1	lowNO3
+untreated pig slurry	organic	2	2	1	lowNO3
+untreated slurry	organic	2	2	1	lowNO3
+urine	organic	2	2	1	lowNO3
+vinasse-burn	organic	2	2	1	lowNO3
+vinasse-unburn	organic	2	2	1	lowNO3
+yak dung	organic	2	2	1	lowNO3
+pig slurry+DCD (IPS+DCD)	organic + NI	2	2	1	lowNO3
+urine + DCD	organic + NI	2	2	1	lowNO3
+1/2urea+chicken manure	Mix_N_mineral_organic	3	2	3	lowNO3
+1NPK(compound)+manure	Mix_N_mineral_organic	3	2	3	lowNO3
+2NPK+manure	Mix_N_mineral_organic	3	2	3	lowNO3
+3NPK+manure	Mix_N_mineral_organic	3	2	3	lowNO3
+4NPK+manure	Mix_N_mineral_organic	3	2	3	lowNO3
+50%NPK+50% chicken manure+urea	Mix_N_mineral_organic	3	2	3	lowNO3
+50%NPK+50% pig manure+Urea	Mix_N_mineral_organic	3	2	3	lowNO3
+50/50 mix urea + urea w/microbial inhibitors	Mix_N_mineral_organic	3	2	3	lowNO3
+70%urea+biochar	Mix_N_mineral_organic	3	2	3	lowNO3
+75%NPK+25% chicken manure+Urea	Mix_N_mineral_organic	3	2	3	lowNO3
+75%NPK+25%pig manure+Urea	Mix_N_mineral_organic	3	2	3	lowNO3
+80%urea+nano carbon+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+ammonium bicarbonate+pig manure	Mix_N_mineral_organic	3	2	3	lowNO3
+ammonium bicarbonate+straw	Mix_N_mineral_organic	3	2	3	lowNO3
+AN+AS+org	Mix_N_mineral_organic	3	2	3	lowNO3
+AN+cattle manure	Mix_N_mineral_organic	3	2	3	lowNO3
+AN+manure	Mix_N_mineral_organic	3	2	3	lowNO3
+beef cattle + AN	Mix_N_mineral_organic	3	2	3	lowNO3
+CAN + cattle slurry	Mix_N_mineral_organic	3	2	3	lowNO3
+CAN + liquid cattle slurry	Mix_N_mineral_organic	3	2	3	lowNO3
+CAN+residues	Mix_N_mineral_organic	3	2	3	lowNO3
+CAN+urine+dung	Mix_N_mineral_organic	3	2	3	lowNO3
+Cattle manure+NH4NO3	Mix_N_mineral_organic	3	2	3	lowNO3
+CF+OF+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+Chemical Fertilizer(cattle manure)+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+Compost+Urea	Mix_N_mineral_organic	3	2	3	lowNO3
+composted solid fraction of pig slurry plus urea	Mix_N_mineral_organic	3	2	3	lowNO3
+compound+20 biochar	Mix_N_mineral_organic	3	2	3	lowNO3
+compound+40 biochar	Mix_N_mineral_organic	3	2	3	lowNO3
+controlled release urea+manure	Mix_N_mineral_organic	3	2	3	lowNO3
+CRF(U)+OM	Mix_N_mineral_organic	3	2	3	lowNO3
+dissolved urea + lagoon stored human manure	Mix_N_mineral_organic	3	2	3	lowNO3
+manure+diammonium phosphorus	Mix_N_mineral_organic	3	2	3	lowNO3
+manure+urea	Mix_N_mineral_organic	3	2	3	lowNO3
+manure+Urea	Mix_N_mineral_organic	3	2	3	lowNO3
+manure+urea+dicyandiamide	Mix_N_mineral_organic	3	2	3	lowNO3
+maunre+urea	Mix_N_mineral_organic	3	2	3	lowNO3
+maure+70%urea	Mix_N_mineral_organic	3	2	3	lowNO3
+Milk vetch+urea	Mix_N_mineral_organic	3	2	3	lowNO3
+mineral F+High manure rate	Mix_N_mineral_organic	3	2	3	lowNO3
+mineral F+low manure rate	Mix_N_mineral_organic	3	2	3	lowNO3
+mineral F+rice residue	Mix_N_mineral_organic	3	2	3	lowNO3
+mix of digested slurry and maize	Mix_N_mineral_organic	3	2	3	lowNO3
+municipal solid waste+Urea (MSW+U)	Mix_N_mineral_organic	3	2	3	lowNO3
+N fertilizer straw notillage	Mix_N_mineral_organic	3	2	3	lowNO3
+N fertilizer straw tillage	Mix_N_mineral_organic	3	2	3	lowNO3
+N(urea)+PK+OM	Mix_N_mineral_organic	3	2	3	lowNO3
+NH4control3 (17control) and farmland slurry (13control)	Mix_N_mineral_organic	3	2	3	lowNO3
+NH4control3 (2control7) and farmland slurry (13control)	Mix_N_mineral_organic	3	2	3	lowNO3
+NPK + Maize straw	Mix_N_mineral_organic	3	2	3	lowNO3
+NPK + pig manure	Mix_N_mineral_organic	3	2	3	lowNO3
+NPK plus three times the pig manure	Mix_N_mineral_organic	3	2	3	lowNO3
+NPK plus twice as much maize straw	Mix_N_mineral_organic	3	2	3	lowNO3
+NPK+manure	Mix_N_mineral_organic	3	2	3	lowNO3
+NPK+residues	Mix_N_mineral_organic	3	2	3	lowNO3
+OM+chemical F	Mix_N_mineral_organic	3	2	3	lowNO3
+OM+Compound NPK	Mix_N_mineral_organic	3	2	3	lowNO3
+organic + AN + U	Mix_N_mineral_organic	3	2	3	lowNO3
+Organic-AN	Mix_N_mineral_organic	3	2	3	lowNO3
+Pig slurry + U	Mix_N_mineral_organic	3	2	3	lowNO3
+pig slurry + urea	Mix_N_mineral_organic	3	2	3	lowNO3
+Pig slurry + Urea	Mix_N_mineral_organic	3	2	3	lowNO3
+poultry litter+AgrotainPlus	Mix_N_mineral_organic	3	2	3	lowNO3
+Poultry manure+Urea	Mix_N_mineral_organic	3	2	3	lowNO3
+reduce urea+biochar+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+reduced urea +organic	Mix_N_mineral_organic	3	2	3	lowNO3
+reduced urea +organic+DCD	Mix_N_mineral_organic	3	2	3	lowNO3
+reduced urea fertilizer with crop straw	Mix_N_mineral_organic	3	2	3	lowNO3
+reduced urea+biochar	Mix_N_mineral_organic	3	2	3	lowNO3
+Reduced Urea+cattle manure+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+reduced urea+DP+poultry manure	Mix_N_mineral_organic	3	2	3	lowNO3
+rice resid+urea	Mix_N_mineral_organic	3	2	3	lowNO3
+rice straw+urea	Mix_N_mineral_organic	3	2	3	lowNO3
+ROM	Mix_N_mineral_organic	3	2	3	lowNO3
+Sraw+Compound NPK	Mix_N_mineral_organic	3	2	3	lowNO3
+straw+Urea	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea + DCD	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea + FYM	Mix_N_mineral_organic	3	2	3	lowNO3
+urea + manure	Mix_N_mineral_organic	3	2	3	lowNO3
+urea + pig manure	Mix_N_mineral_organic	3	2	3	lowNO3
+urea + pig manure compost	Mix_N_mineral_organic	3	2	3	lowNO3
+urea + rapeseed cake	Mix_N_mineral_organic	3	2	3	lowNO3
+urea + residues	Mix_N_mineral_organic	3	2	3	lowNO3
+urea + straw	Mix_N_mineral_organic	3	2	3	lowNO3
+urea + straw + pig manure compost	Mix_N_mineral_organic	3	2	3	lowNO3
+urea + straw + straw-decompositing inoculant	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea + Superphosphate + cattle manure	Mix_N_mineral_organic	3	2	3	lowNO3
+urea + wheat straw	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea and CAN and organic (dung+urine)	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea/CAN/pasteur sward	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea/CAN/sweet grass	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+ rapeseed cake	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+(NH4)2HPO4+K2SO4+swine manure	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+AHP+bio fertilizer	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+AHP+organic fertilizer	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+Biochar	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+biochar+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+cattle manure+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+chicken manure	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+compost	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+compost+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+compound+manure	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+digestate+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+double biochar	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+FYM	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+GM	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+manure	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+manure(cow dung)	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+manure+Si+Zn	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+NH4HCO3+manure	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+OM	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+organic fertilizer	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+organic fertilizer(cow manure)	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+P+K+FYM	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+P+K+manure	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+P+K+straw	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+pig manure	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+PK (NPK)+FYM	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+PK+manure	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+residues	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+rice straw	Mix_N_mineral_organic	3	2	3	lowNO3
+Urea+straw	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw return+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw(burning)	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw(mulching)	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw(mulching)+milk vetch	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw+drainage(19 days)+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw+drainage(7 days)+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw+drainage+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw+flooding+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw+manure+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw+multiple drainage+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw+NI+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw+nitrification inhibitor+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw+release urea+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+straw+slow release urea+PK	Mix_N_mineral_organic	3	2	3	lowNO3
+urea+wheat straw	Mix_N_mineral_organic	3	2	3	lowNO3
+urea-25%N FYM	Mix_N_mineral_organic	3	2	3	lowNO3
+urea-25%N GM	Mix_N_mineral_organic	3	2	3	lowNO3
+Urine + dung	Mix_N_mineral_organic	3	2	3	lowNO3
+wheat resid+urea	Mix_N_mineral_organic	3	2	3	lowNO3
+wheat resid+urea+GM	Mix_N_mineral_organic	3	2	3	lowNO3
+AN + DCD	Mix_N + NI	4	2	2	lowNO3
+AN+DCD (NI)	Mix_N + NI	4	2	2	lowNO3
+AN+NI	Mix_N + NI	4	2	2	lowNO3
+AS + DCD	Mix_N + NI	4	2	2	lowNO3
+AS+DCD	Mix_N + NI	4	2	2	lowNO3
+ASN+DMPP (Entec 26)	Mix_N + NI	4	2	2	lowNO3
+ENTEC (ASN with DMPP nitrification inhibitor)	Mix_N + NI	4	2	2	lowNO3
+ENTEC 26	Mix_N + NI	4	2	2	lowNO3
+KNO3+DCD	Mix_N + NI	4	2	2	lowNO3
+NPK+ENTEC 26	Mix_N + NI	4	2	2	lowNO3
+!% DMPP+U+PK	Urea + NI	4	2	2	lowNO3
+0.5% NBPT+1% DMPP+U+PK	Urea + NI	4	2	2	lowNO3
+1% HQ+3%DCD +U+PK	Urea + NI	4	2	2	lowNO3
+3% DCD+U+PK	Urea + NI	4	2	2	lowNO3
+80%urea+DCD+PK	Urea + NI	4	2	2	lowNO3
+reduced urea fertilizer with nitrification inhibitor	Urea + NI	4	2	2	lowNO3
+Reduced Urea+DCD+P	Urea + NI	4	2	2	lowNO3
+SuperU (Urea+UI+NI)	Urea + NI	4	2	2	lowNO3
+U + DCD	Urea + NI	4	2	2	lowNO3
+U + nitrapyrine	Urea + NI	4	2	2	lowNO3
+U+UI+NI	Urea + NI	4	2	2	lowNO3
+Urea DCD	Urea + NI	4	2	2	lowNO3
+urea plus dicyandiamide	Urea + NI	4	2	2	lowNO3
+urea plus NBPTand DCD	Urea + NI	4	2	2	lowNO3
+urea+DCD	Urea + NI	4	2	2	lowNO3
+Urea+DCD (NI)	Urea + NI	4	2	2	lowNO3
+Urea+DMPP-R	Urea + NI	4	2	2	lowNO3
+Urea+HQ (UI)+DCD	Urea + NI	4	2	2	lowNO3
+urea+NBPT+DCD	Urea + NI	4	2	2	lowNO3
+Urea+NBPT+DCD	Urea + NI	4	2	2	lowNO3
+Urea+NI	Urea + NI	4	2	2	lowNO3
+urea+urease inhibitor+DCD	Urea + NI	4	2	2	lowNO3
+0.5% NBPT+U+PK	Urea + additives	5	2	2	lowNO3
+coated NPK+Muriate of Potash+urea	Urea + additives	5	2	2	lowNO3
+Coated urea	Urea + additives	5	2	2	lowNO3
+controlled release N	Urea + additives	5	2	2	lowNO3
+Controlled release urea	Urea + additives	5	2	2	lowNO3
+controlled-released N	Urea + additives	5	2	2	lowNO3
+CRF(nutricote)	Urea + additives	5	2	2	lowNO3
+CRF(osomcote)	Urea + additives	5	2	2	lowNO3
+CRF(U)	Urea + additives	5	2	2	lowNO3
+ESN (Urea+ polymer coated)	Urea + additives	5	2	2	lowNO3
+ESN subsurface band	Urea + additives	5	2	2	lowNO3
+granular ESN	Urea + additives	5	2	2	lowNO3
+LP-30	Urea + additives	5	2	2	lowNO3
+neem coated urea	Urea + additives	5	2	2	lowNO3
+Neem urea	Urea + additives	5	2	2	lowNO3
+nimin coated urea	Urea + additives	5	2	2	lowNO3
+Nimin urea	Urea + additives	5	2	2	lowNO3
+Nutrisphere	Urea + additives	5	2	2	lowNO3
+PCU	Urea + additives	5	2	2	lowNO3
+PCU urea coated with polyolefin	Urea + additives	5	2	2	lowNO3
+PCU+PK	Urea + additives	5	2	2	lowNO3
+PCUD urea coated with polyolefin and dicyandiamide	Urea + additives	5	2	2	lowNO3
+polymer coated urea	Urea + additives	5	2	2	lowNO3
+polymer coated urea (PCU)	Urea + additives	5	2	2	lowNO3
+polymer coated urea 1+starter	Urea + additives	5	2	2	lowNO3
+polymer coated urea 2+starter	Urea + additives	5	2	2	lowNO3
+polymer coated urea+PK	Urea + additives	5	2	2	lowNO3
+polymercoated slow-release urea (ESN)	Urea + additives	5	2	2	lowNO3
+polymer-coated urea (ESN)	Urea + additives	5	2	2	lowNO3
+PSCU (polymer and sulfur coated urea)	Urea + additives	5	2	2	lowNO3
+reduced urea	Urea + additives	5	2	2	lowNO3
+reduced urea application	Urea + additives	5	2	2	lowNO3
+reduced urea fertilizer	Urea + additives	5	2	2	lowNO3
+reduced urea+DP	Urea + additives	5	2	2	lowNO3
+Reduced Urea+P	Urea + additives	5	2	2	lowNO3
+resin coated urea(CRF)	Urea + additives	5	2	2	lowNO3
+resin coated urea+PK	Urea + additives	5	2	2	lowNO3
+SCU+PK	Urea + additives	5	2	2	lowNO3
+slow release urea fertilizer	Urea + additives	5	2	2	lowNO3
+SN	Urea + additives	5	2	2	lowNO3
+SU	Urea + additives	5	2	2	lowNO3
+sulfur urea+PK	Urea + additives	5	2	2	lowNO3
+Sulphur coated urea	Urea + additives	5	2	2	lowNO3
+Super U (Urea+NI&UI)	Urea + additives	5	2	2	lowNO3
+SuperU	Urea + additives	5	2	2	lowNO3
+U +  ECC	Urea + additives	5	2	2	lowNO3
+U + ECC	Urea + additives	5	2	2	lowNO3
+U+UI	Urea + additives	5	2	2	lowNO3
+Uc	Urea + additives	5	2	2	lowNO3
+urea + SuperU	Urea + additives	5	2	2	lowNO3
+Urea controlled release	Urea + additives	5	2	2	lowNO3
+urea plus N-(n-butyl) thiophosphoric triamide	Urea + additives	5	2	2	lowNO3
+Urea SBT-BUTANOATE	Urea + additives	5	2	2	lowNO3
+Urea SBT-FUROATE	Urea + additives	5	2	2	lowNO3
+urea w/ microbial inhibitors	Urea + additives	5	2	2	lowNO3
+Urea with NBPT	Urea + additives	5	2	2	lowNO3
+urea+formaldehyde+PK	Urea + additives	5	2	2	lowNO3
+Urea+MIP	Urea + additives	5	2	2	lowNO3
+urea+NBPT	Urea + additives	5	2	2	lowNO3
+Urea+NBPT	Urea + additives	5	2	2	lowNO3
+Urea+thiosulphate	Urea + additives	5	2	2	lowNO3
+Urea+UDD+PK	Urea + additives	5	2	2	lowNO3
+Urea+UI	Urea + additives	5	2	2	lowNO3
+Urea+UI (high)	Urea + additives	5	2	2	lowNO3
+Urea+UI (low)	Urea + additives	5	2	2	lowNO3
+Urea+urease inhibitor	Urea + additives	5	2	2	lowNO3
+ACl	Ammonium	6	3	4	highNO3
+Ammonium Bicarbonate	Ammonium	6	3	4	highNO3
+ammonium bicarbonate	Ammonium	6	3	4	highNO3
+ammonium sulphate	Ammonium	6	3	4	highNO3
+Ammonium sulphate 100	Ammonium	6	3	4	highNO3
+Ammonium sulphate 300	Ammonium	6	3	4	highNO3
+AS	Ammonium	6	3	4	highNO3
+AS + AP	Ammonium	6	3	4	highNO3
+AS + NP	Ammonium	6	3	4	highNO3
+AS+AS	Ammonium	6	3	4	highNO3
+DAP	Ammonium	6	3	4	highNO3
+NH4	Ammonium	6	3	4	highNO3
+NH4 + DCS	Ammonium	6	3	4	highNO3
+NH4control3	Ammonium	6	3	4	highNO3
+NH4H2PO4	Ammonium	6	3	4	highNO3
+AA	Anhydrous ammonia	6	3	4	highNO3
+AA+starter	Anhydrous ammonia	6	3	4	highNO3
+aq NH3	Anhydrous ammonia	6	3	4	highNO3
+AqA	Anhydrous ammonia	6	3	4	highNO3
+1% HQ+U+PK	Urea	6	3	4	highNO3
+100%urea	Urea	6	3	4	highNO3
+1200 urea	Urea	6	3	4	highNO3
+50%urea	Urea	6	3	4	highNO3
+60%N+PK(Urea)	Urea	6	3	4	highNO3
+600 urea	Urea	6	3	4	highNO3
+75%urea	Urea	6	3	4	highNO3
+900 urea	Urea	6	3	4	highNO3
+chemical Fertilizer(urea)	Urea	6	3	4	highNO3
+conventional urea	Urea	6	3	4	highNO3
+conventional urea fertilizer	Urea	6	3	4	highNO3
+conventional urea+PK	Urea	6	3	4	highNO3
+"F irri, urea+PK"	Urea	6	3	4	highNO3
+"FDF irri, urea+PK"	Urea	6	3	4	highNO3
+"FDFM irri, urea+PK"	Urea	6	3	4	highNO3
+granular urea	Urea	6	3	4	highNO3
+N(Urea)+PK	Urea	6	3	4	highNO3
+non polymer coated urea (NPCU)	Urea	6	3	4	highNO3
+starter+urea	Urea	6	3	4	highNO3
+traditional urea fertilizer	Urea	6	3	4	highNO3
+U	Urea	6	3	4	highNO3
+urea	Urea	6	3	4	highNO3
+Urea	Urea	6	3	4	highNO3
+Urea + Superphosphate	Urea	6	3	4	highNO3
+Urea 100	Urea	6	3	4	highNO3
+Urea 300	Urea	6	3	4	highNO3
+urea furrow	Urea	6	3	4	highNO3
+urea granules	Urea	6	3	4	highNO3
+"urea granules, contiuous irri."	Urea	6	3	4	highNO3
+"urea granules, intermitted irri."	Urea	6	3	4	highNO3
+urea ridge	Urea	6	3	4	highNO3
+Urea solution	Urea	6	3	4	highNO3
+urea tablets	Urea	6	3	4	highNO3
+"urea tablets, contiuous irri."	Urea	6	3	4	highNO3
+"urea tablets, intermitted irri."	Urea	6	3	4	highNO3
+urea(comvention)	Urea	6	3	4	highNO3
+urea(convention)	Urea	6	3	4	highNO3
+urea(FP)+PK	Urea	6	3	4	highNO3
+urea(optimal)	Urea	6	3	4	highNO3
+urea+Ca Mg P+PK	Urea	6	3	4	highNO3
+urea+CP(chlorinated pyridine)	Urea	6	3	4	highNO3
+urea+K	Urea	6	3	4	highNO3
+Urea+K	Urea	6	3	4	highNO3
+urea+K2SO4	Urea	6	3	4	highNO3
+urea+no straw+drainage+PK	Urea	6	3	4	highNO3
+urea+no straw+flooding+PK	Urea	6	3	4	highNO3
+Urea+P	Urea	6	3	4	highNO3
+urea+P	Urea	6	3	4	highNO3
+urea+P+K	Urea	6	3	4	highNO3
+Urea+p+k	Urea	6	3	4	highNO3
+Urea+P+K	Urea	6	3	4	highNO3
+urea+PK	Urea	6	3	4	highNO3
+Urea+PK	Urea	6	3	4	highNO3
+Urea+PK (NPK)	Urea	6	3	4	highNO3
+urea+PK+bare	Urea	6	3	4	highNO3
+AA + NP	Mineral_N_mix	7	4	5	highNO3
+AA+CN	Mineral_N_mix	7	4	5	highNO3
+AA+Urea	Mineral_N_mix	7	3	4	highNO3
+AN+Urea	Mineral_N_mix	7	3	4	highNO3
+AS+AN	Mineral_N_mix	7	4	5	highNO3
+AS+CN	Mineral_N_mix	7	4	5	highNO3
+AS+Urea	Mineral_N_mix	7	3	4	highNO3
+AS+Urea+zeolite	Mineral_N_mix	7	3	4	highNO3
+ASN	Mineral_N_mix	7	4	5	highNO3
+ASN depot	Mineral_N_mix	7	4	5	highNO3
+ASN+Urea	Mineral_N_mix	7	4	5	highNO3
+CAN/Urea (5control:5control)	Mineral_N_mix	7	4	5	highNO3
+chemical F	Mineral_N_mix	7	4	5	highNO3
+compound	Mineral_N_mix	7	4	5	highNO3
+compound chemical fertilizer	Mineral_N_mix	7	4	5	highNO3
+Compound NPK	Mineral_N_mix	7	4	5	highNO3
+compound+urea	Mineral_N_mix	7	4	5	highNO3
+compoundNPK	Mineral_N_mix	7	4	5	highNO3
+conventional treatment	Mineral_N_mix	7	4	5	highNO3
+crN+PK	Mineral_N_mix	7	4	5	highNO3
+CrN+PK	Mineral_N_mix	7	4	5	highNO3
+DAP/CAN	Mineral_N_mix	7	4	5	highNO3
+liquid UAN	Mineral_N_mix	7	4	5	highNO3
+"liquid, slow-release UAN with Nfusion"	Mineral_N_mix	7	2	2	lowNO3
+mineral fertilizr	Mineral_N_mix	7	4	5	highNO3
+mineral N	Mineral_N_mix	7	4	5	highNO3
+mix	Mineral_N_mix	7	4	5	highNO3
+Mix	Mineral_N_mix	7	4	5	highNO3
+N fertilizer no straw tillage	Mineral_N_mix	7	4	5	highNO3
+N(pyridine)PK	Mineral_N_mix	7	4	5	highNO3
+NA	Mineral_N_mix	7	4	5	highNO3
+NK	Mineral_N_mix	7	4	5	highNO3
+NP	Mineral_N_mix	7	4	5	highNO3
+NPK	Mineral_N_mix	7	4	5	highNO3
+NPK + AS	Mineral_N_mix	7	4	5	highNO3
+NPK + NK	Mineral_N_mix	7	4	5	highNO3
+NPK + NS	Mineral_N_mix	7	4	5	highNO3
+NPK + Urea	Mineral_N_mix	7	4	5	highNO3
+NPK+ASN	Mineral_N_mix	7	4	5	highNO3
+NPK+Muriate of Potash+urea	Mineral_N_mix	7	4	5	highNO3
+NPK+Urea	Mineral_N_mix	7	4	5	highNO3
+NS	Mineral_N_mix	7	4	5	highNO3
+reduce urea+PK	Mineral_N_mix	7	3	4	highNO3
+stabilized liquid UAN with AgrotainPlus	Mineral_N_mix	7	2	2	lowNO3
+starter+anhydrous ammonia	Mineral_N_mix	7	3	4	highNO3
+starter+UAN	Mineral_N_mix	7	4	5	highNO3
+starter+UAN+nitrapyrin	Mineral_N_mix	7	4	5	highNO3
+starter+urea+ammonium nitreate	Mineral_N_mix	7	4	5	highNO3
+synthetic fertilizer	Mineral_N_mix	7	4	5	highNO3
+U + AS	Mineral_N_mix	7	3	4	highNO3
+U + NP	Mineral_N_mix	7	4	5	highNO3
+UAN	Mineral_N_mix	7	4	5	highNO3
+U-AN	Mineral_N_mix	7	4	5	highNO3
+UAN + AgrotainPlus	Mineral_N_mix	7	2	2	lowNO3
+UAN solution	Mineral_N_mix	7	4	5	highNO3
+UAN+AgrotainPlus	Mineral_N_mix	7	2	2	lowNO3
+Urea + compound	Mineral_N_mix	7	4	5	highNO3
+urea + compound fertilizer	Mineral_N_mix	7	4	5	highNO3
+urea and compound fertilizer	Mineral_N_mix	7	4	5	highNO3
+Urea/CAN	Mineral_N_mix	7	4	5	highNO3
+Urea/UAN	Mineral_N_mix	7	4	5	highNO3
+urea+(NH4)2HPO4	Mineral_N_mix	7	3	4	highNO3
+urea+(NH4)2HPO4+K2SO4	Mineral_N_mix	7	3	4	highNO3
+Urea+Ammonium hydrogen phosphate(AHP)	Mineral_N_mix	7	3	4	highNO3
+Urea+AN	Mineral_N_mix	7	4	5	highNO3
+Urea+AN+UI	Mineral_N_mix	7	4	5	highNO3
+Urea+AN+UI 	Mineral_N_mix	7	4	5	highNO3
+Urea+AN+UI (high)	Mineral_N_mix	7	4	5	highNO3
+urea+AS	Mineral_N_mix	7	3	4	highNO3
+Urea+AS	Mineral_N_mix	7	4	5	highNO3
+urea+compound	Mineral_N_mix	7	4	5	highNO3
+urea+diammonium phosphate(DP)	Mineral_N_mix	7	3	4	highNO3
+Urea+NH4	Mineral_N_mix	7	3	4	highNO3
+urea+NH4HCO3	Mineral_N_mix	7	3	4	highNO3
+Urea+NH4PO3	Mineral_N_mix	7	3	4	highNO3
+ammoinium nitrate	Ammoniumnitrate	8	5	6	highNO3
+AN	Ammoniumnitrate	8	5	6	highNO3
+AN + CaCO3	Ammoniumnitrate	8	5	6	highNO3
+AN applied in May	Ammoniumnitrate	8	5	6	highNO3
+AN applied in October	Ammoniumnitrate	8	5	6	highNO3
+CAN	Ammoniumnitrate	8	5	6	highNO3
+CAN+PK	Ammoniumnitrate	8	5	6	highNO3
+"DI irri, AN"	Ammoniumnitrate	8	5	6	highNO3
+NH4NO3	Ammoniumnitrate	8	5	6	highNO3
+NH4NO3+water	Ammoniumnitrate	8	5	6	highNO3
+nitrophosphate	Ammoniumnitrate	8	5	6	highNO3
+"SDI irri, AN"	Ammoniumnitrate	8	5	6	highNO3
+slow release NPK fertiliser (ammonium nitrate)	Ammoniumnitrate	8	5	6	highNO3
+CN	Nitrate	9	6	7	highNO3
+Coated CN	Nitrate	9	6	7	highNO3
+KN	Nitrate	9	6	7	highNO3
+KNO3	Nitrate	9	6	7	highNO3
+potassium nitrate	Nitrate	9	6	7	highNO3

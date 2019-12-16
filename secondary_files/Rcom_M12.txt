@@ -1,0 +1,634 @@
+####### Generate data sets with and without NAs (dummy imputed values for use with jagam to generate the right model matrix size)
+
+M12.vars<- c("logN2O.cum.pos", "pH.cent", "Grasslands", "logNrate.cent.v2", "logclay.imp.ct", "Fert01", "NO3.avail.v3", "studyID.f", "logDegDays.exp.compact", "NO3.avail.f3", "logSumPrecip.exp.compact", "logWetDays.exp.compact", "logCarbon", "logNrate.cent.lowNO3", "logNrate.cent.highNO3") #, "PosDDays.air.exp", "FrostDDays.soil.exp", "PosDDays.soil.exp", "Nuptake.group.num", "logFTCy.exp", "logAvPrecip.exp.ct", "AvDegDays.exp.ct"
+sub.M12<- apply(dat[, c("logN2O.cum.pos", "logNrate.cent.v2", "Fert01", "NO3.avail.v3", "studyID.f", "logWetDays.exp", "logclay.imp")], 1, FUN= function(x) !any(is.na(x))) # leave only variables for which NAs cannot be imputed, so that obs with missing data are removed # , "Bulk.density.imputed"
+table(sub.M12) 	# FALSE  TRUE 
+  				#   486  2244 
+dat.M12<- dat[sub.M12, M12.vars]
+dat.M12.dummy<- dat.M12 # for use with jagam to generate the right model matrix size
+
+# replace NAs by any value (here median of column)
+for(i in 1:ncol(dat.M12)){
+	if(is.numeric(dat.M12.dummy[, i])){ dat.M12.dummy[is.na(dat.M12.dummy[, i]), i]<- median(dat.M12.dummy[, i], na.rm= T) }
+	if(is.character(dat.M12.dummy[, i])){ dat.M12.dummy[is.na(dat.M12.dummy[, i]), i]<- median(dat.M12.dummy[, i], na.rm= T) }
+	if(is.factor(dat.M12.dummy[, i])){ dat.M12.dummy[is.na(dat.M12.dummy[, i]), i]<- median(as.character(dat.M12.dummy[, i]), na.rm= T) }
+	if(is.logical(dat.M12.dummy[, i])){ dat.M12.dummy[is.na(dat.M12.dummy[, i]), i]<- F }
+}
+
+#################### run JAGAM - Model M12 #####################
+pregam.M12<- jagam(formula= logN2O.cum.pos ~ Fert01 + Grasslands #Fert01 unnecessary due to 'by= Fert01' below?
+ 	+ Grasslands:Fert01 
+ 	+ logCarbon
+	+ s(pH.cent, bs= "cr", k= 9)
+	+ te(logclay.imp.ct, logWetDays.exp.compact, k= c(5, 5))
+	+ te(logclay.imp.ct, logWetDays.exp.compact, k= c(5, 5), by= logNrate.cent.lowNO3)
+	+ te(logclay.imp.ct, logWetDays.exp.compact, k= c(5, 5), by= logNrate.cent.highNO3)
+	+ s(logDegDays.exp.compact, k= 8) 
+	+ s(logNrate.cent.v2, by= Fert01)
+ 	+ s(studyID.f, bs= "re"),
+ 	family= gaussian, data= dat.M12.dummy, file= "./JAGS/modelM12.txt", centred=TRUE, sp.prior = "gamma", diagonalize= FALSE)
+
+
+#################### correct JAGS data #####################
+# identify number of fixed effects
+nfixed.M12<- rle(colnames(pregam.M12$jags.data$X)=="")$lengths[1] # run length encoding -> take first run of non-empty names (last is random effects)
+fixed.names.M12<- pregam.M12$pregam$term.names[1:nfixed.M12]
+
+# replace dummy values in model matrix by NA where they should be (according to dat.M12)
+for(i in M12.vars){
+ 	pregam.M12$jags.data$X[is.na(dat.M12[, i]), grep(i, pregam.M12$pregam$term.names)]<- NA
+}
+
+# vars2impute<- apply(pregam.M12$jags.data$X[, 1:nfixed], 2, FUN= function(x) any(is.na(x)))
+vars2impute<- apply(pregam.M12$jags.data$X, 2, FUN= function(x) any(is.na(x)))
+vars2impute.colIndex<- which(vars2impute)
+vars2impute.NMissing<- as.list(apply(pregam.M12$jags.data$X[, vars2impute.colIndex], 2, FUN= function(x) sum(is.na(x))))
+vars2impute.whichMissing<- list(apply(pregam.M12$jags.data$X[, vars2impute.colIndex], 2, FUN= function(x) as.numeric(which(is.na(x)))))[[1]]
+names(vars2impute.whichMissing)<- paste(gsub(":", ".", gsub("(", ".", gsub(")", "", pregam.M12$pregam$term.names[vars2impute.colIndex], fixed= T), fixed= T)), "whichMissing", sep= ".")
+names(vars2impute.NMissing)<- paste(gsub(":", ".", gsub("(", ".", gsub(")", "", pregam.M12$pregam$term.names[vars2impute.colIndex], fixed= T), fixed= T)), "NMissing", sep= ".")
+
+# create lookup table for pH.cent spline bases coords imputation
+pH.cent.cat<- cut(dat.M12$pH.cent, breaks= c(-4, -2, -1.5, -1, -0.5, 0, 0.5, 1, 2)) # create 8 classes of pH.cent
+pH.cent.cat.prop<- round(table(pH.cent.cat)/sum(table(pH.cent.cat)), 2) # proportion of data per class
+pH.cent.ref.index<- unlist(lapply(as.list(round(tapply(dat.M12$pH.cent, pH.cent.cat, mean, na.rm= T), 1)), FUN= function(x) which.min(abs(dat.M12$pH.cent - x)))) # index of pH.cent value closest to class mean
+pH.cent.lookup<- pregam.M12$jags.data$X[pH.cent.ref.index, grep("pH.cent", pregam.M12$pregam$term.names)]
+
+
+pregam.M12$jags.data<- c(pregam.M12$jags.data, vars2impute.NMissing, vars2impute.whichMissing, Grasslands.prop= list(as.vector(table(dat$Grasslands)/sum(!is.na(dat$Grasslands)))), list(pH.cent.cat.prop= as.vector(pH.cent.cat.prop)), list(pH.cent.lookup= as.matrix(pH.cent.lookup)))#,
+str(pregam.M12$jags.data)
+
+# let JAGS auto-initialize the parametric coefficients so that each chain starts from a different point
+# (in order to investigate identifiability issues with the intercept for fertilizer treatment)
+pregam.M12$jags.ini$b[1:nfixed.M12]<- NA
+
+#################### correct JAGS model #####################
+data.frame(colIndex= vars2impute.colIndex, NMissing= unlist(vars2impute.NMissing))
+#                      colIndex NMissing
+# logCarbon.NMissing          4      545
+# s.pH.cent.1.NMissing        6      261
+# s.pH.cent.2.NMissing        7      261
+# s.pH.cent.3.NMissing        8      261
+# s.pH.cent.4.NMissing        9      261
+# s.pH.cent.5.NMissing       10      261
+# s.pH.cent.6.NMissing       11      261
+# s.pH.cent.7.NMissing       12      261
+# s.pH.cent.8.NMissing       13      261
+
+#### NOT RUN ####
+  	# Missing data imputation with informative priors
+ 	for(i in 1:logCarbon.NMissing){ 
+ 		logC.tmp[i] ~ dnorm(0.485,1.572) # logCarbon prior
+ 		X[logCarbon.whichMissing[i], 4] <- logC.tmp[i]
+ 	}
+	for(i in 1:s.pH.cent.1.NMissing){ 
+		pH.index[i] ~ dcat(pH.cent.cat.prop[]) # pH.cent prior
+		X[s.pH.cent.1.whichMissing[i], 6:13]  <- pH.cent.lookup[pH.index[i], ]
+	}
+# 	for(i in 1:GrasslandsTRUE.NMissing){ 
+# 		Grasslands.tmp[i] ~ dcat(Grasslands.prop) # Grasslands.TRUE prior
+# 		X[GrasslandsTRUE.whichMissing[i], 3] <- Grasslands.tmp[i] - 1
+# 		X[GrasslandsTRUE.whichMissing[i], 5] <- X[GrasslandsTRUE.whichMissing[i], 3] * X[GrasslandsTRUE.whichMissing[i], 2] # Fert01:Grasslands.TRUE prior
+# 	}
+	
+#### END NOT RUN ####
+
+params <- c("b","rho","scale", "mu", "pH.index", "Grasslands.tmp", "tau")# , "logC.tmp"
+chains <- 1
+iter <- 2000
+nb<- 1000
+
+Sys.time() # 
+jagsM12.1 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+              parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 1, DIC= T, jags.seed= 34)
+save(jagsM12.1, file= "jagsM12_1.RData")
+Sys.time() # about 45 h for compiling + 2000 iter
+jagsM12.2 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+              parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 1, DIC= T, jags.seed= 83)
+save(jagsM12.2, file= "jagsM12_2.RData")
+Sys.time() # about 45 h for compiling + 2000 iter
+jagsM12.3 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+              parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 1, DIC= T, jags.seed= 57)
+save(jagsM12.3, file= "jagsM12_3.RData")
+Sys.time() # about 45 h for compiling + 2000 iter
+jagsM12.4 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+              parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 1, DIC= T, jags.seed= 389)
+save(jagsM12.4, file= "jagsM12_4.RData")
+Sys.time() # about 45 h for compiling + 2000 iter
+jagsM12.5 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+              parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 1, DIC= T, jags.seed= 124)
+save(jagsM12.5, file= "jagsM12_5.RData")
+Sys.time() # about 45 h for compiling + 2000 iter
+jagsM12.6 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+              parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+              n.chains = chains, n.iter = iter, n.burnin= nb,
+              n.thin = 1, DIC= T, jags.seed= 720)
+save(jagsM12.6, file= "jagsM12_6.RData")
+Sys.time() # about 45 h for compiling + 2000 iter
+
+load("jagsM12_1.RData"); load("jagsM12_2.RData"); load("jagsM12_3.RData"); load("jagsM12_4.RData"); load("jagsM12_5.RData"); load("jagsM12_6.RData")
+
+jagsM12.6c<- jagsM12.1
+jagsM12.6c$BUGSoutput$sims.list<- mapply(rbind, jagsM12.1$BUGSoutput$sims.list, jagsM12.2$BUGSoutput$sims.list, jagsM12.3$BUGSoutput$sims.list, jagsM12.4$BUGSoutput$sims.list, jagsM12.5$BUGSoutput$sims.list, jagsM12.6$BUGSoutput$sims.list)
+jagsM12.6c$BUGSoutput$sims.array<- abind(	jagsM12.1$BUGSoutput$sims.array, 
+											jagsM12.2$BUGSoutput$sims.array,
+											jagsM12.3$BUGSoutput$sims.array,
+											jagsM12.4$BUGSoutput$sims.array,
+											jagsM12.5$BUGSoutput$sims.array,
+											jagsM12.6$BUGSoutput$sims.array, along= 1)
+
+jagsM12.6c$n.iter<- iter*6
+jagsM12.6c$BUGSoutput$n.iter<- iter*6
+jagsM12.6c$BUGSoutput$n.burnin<- nb*6
+jagsM12.6c$BUGSoutput$n.keep<- (iter-nb)*6
+jagsM12.6c$BUGSoutput$n.sims<- (iter-nb)*6
+
+##################### 12 additional re-runs of M12 with 10000 iterations each #####################
+    iter2 <- 15000
+    nb2<- 5000
+
+    Sys.time() # 
+    jagsM12.11 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+                parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+                n.chains = chains, n.iter = iter2, n.burnin= nb2,
+                n.thin = 1, DIC= T, jags.seed= 2893)
+    save(jagsM12.11, file= "jagsM12_11.RData")
+    Sys.time() # about 45 h for compiling + 2000 iter
+    jagsM12.12 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+                parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+                n.chains = chains, n.iter = iter2, n.burnin= nb2,
+                n.thin = 1, DIC= T, jags.seed= 64)
+    save(jagsM12.12, file= "jagsM12_12.RData")
+    Sys.time() # about 45 h for compiling + 2000 iter
+    jagsM12.13 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+                parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+                n.chains = chains, n.iter = iter2, n.burnin= nb2,
+                n.thin = 1, DIC= T, jags.seed= 90)
+    save(jagsM12.13, file= "jagsM12_13.RData")
+    Sys.time() # about 45 h for compiling + 2000 iter
+    jagsM12.14 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+                parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+                n.chains = chains, n.iter = iter2, n.burnin= nb2,
+                n.thin = 1, DIC= T, jags.seed= 83)
+    save(jagsM12.14, file= "jagsM12_14.RData")
+    Sys.time() # about 45 h for compiling + 2000 iter
+    jagsM12.15 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+                parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+                n.chains = chains, n.iter = iter2, n.burnin= nb2,
+                n.thin = 1, DIC= T, jags.seed= 46)
+    save(jagsM12.15, file= "jagsM12_15.RData")
+    Sys.time() # about 45 h for compiling + 2000 iter
+    jagsM12.16 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+                parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+                n.chains = chains, n.iter = iter2, n.burnin= nb2,
+                n.thin = 1, DIC= T, jags.seed= 2378)
+    save(jagsM12.16, file= "jagsM12_16.RData")
+    Sys.time() # about 45 h for compiling + 2000 iter
+    jagsM12.21 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+                parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+                n.chains = chains, n.iter = iter2, n.burnin= nb2,
+                n.thin = 1, DIC= T, jags.seed= 3267)
+    save(jagsM12.21, file= "jagsM12_21.RData")
+    Sys.time() # about 45 h for compiling + 2000 iter
+    jagsM12.22 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+                parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+                n.chains = chains, n.iter = iter2, n.burnin= nb2,
+                n.thin = 1, DIC= T, jags.seed= 8372)
+    save(jagsM12.22, file= "jagsM12_22.RData")
+    Sys.time() # about 45 h for compiling + 2000 iter
+    jagsM12.23 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+                parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+                n.chains = chains, n.iter = iter2, n.burnin= nb2,
+                n.thin = 1, DIC= T, jags.seed= 645)
+    save(jagsM12.23, file= "jagsM12_23.RData")
+    Sys.time() # about 45 h for compiling + 2000 iter
+    jagsM12.24 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+                parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+                n.chains = chains, n.iter = iter2, n.burnin= nb2,
+                n.thin = 1, DIC= T, jags.seed= 21)
+    save(jagsM12.24, file= "jagsM12_24.RData")
+    Sys.time() # about 45 h for compiling + 2000 iter
+    jagsM12.25 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+                parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+                n.chains = chains, n.iter = iter2, n.burnin= nb2,
+                n.thin = 1, DIC= T, jags.seed= 12)
+    save(jagsM12.25, file= "jagsM12_25.RData")
+    Sys.time() # about 45 h for compiling + 2000 iter
+    jagsM12.26 <- jags(model.file = "./JAGS/modelM12_NAimputation.txt", data = pregam.M12$jags.data,
+                parameters.to.save = params, inits = list(pregam.M12$jags.ini),
+                n.chains = chains, n.iter = iter2, n.burnin= nb2,
+                n.thin = 1, DIC= T, jags.seed= 67)
+    save(jagsM12.26, file= "jagsM12_26.RData")
+    Sys.time() # about 45 h for compiling + 2000 iter
+
+    load("jagsM12_1.RData"); load("jagsM12_2.RData"); load("jagsM12_3.RData"); load("jagsM12_4.RData"); load("jagsM12_5.RData"); load("jagsM12_6.RData")
+    load("jagsM12_11.RData"); load("jagsM12_12.RData"); load("jagsM12_13.RData"); load("jagsM12_14.RData"); load("jagsM12_15.RData"); load("jagsM12_16.RData")
+    load("jagsM12_21.RData"); load("jagsM12_22.RData"); load("jagsM12_23.RData"); load("jagsM12_24.RData"); load("jagsM12_25.RData"); load("jagsM12_26.RData")
+
+
+    jagsM12.6c<- jagsM12.1
+    jagsM12.6c$BUGSoutput$sims.list<- mapply(rbind, jagsM12.1$BUGSoutput$sims.list, jagsM12.2$BUGSoutput$sims.list, jagsM12.3$BUGSoutput$sims.list, jagsM12.4$BUGSoutput$sims.list, jagsM12.5$BUGSoutput$sims.list, jagsM12.6$BUGSoutput$sims.list,
+    jagsM12.11$BUGSoutput$sims.list, jagsM12.12$BUGSoutput$sims.list, jagsM12.13$BUGSoutput$sims.list, jagsM12.14$BUGSoutput$sims.list, jagsM12.15$BUGSoutput$sims.list, jagsM12.16$BUGSoutput$sims.list,
+    jagsM12.21$BUGSoutput$sims.list, jagsM12.22$BUGSoutput$sims.list, jagsM12.23$BUGSoutput$sims.list, jagsM12.24$BUGSoutput$sims.list, jagsM12.25$BUGSoutput$sims.list, jagsM12.26$BUGSoutput$sims.list)
+    jagsM12.6c$BUGSoutput$sims.array<- abind(	jagsM12.1$BUGSoutput$sims.array, 
+                                                jagsM12.2$BUGSoutput$sims.array,
+                                                jagsM12.3$BUGSoutput$sims.array,
+                                                jagsM12.4$BUGSoutput$sims.array,
+                                                jagsM12.5$BUGSoutput$sims.array,
+                                                jagsM12.6$BUGSoutput$sims.array,
+                                                jagsM12.11$BUGSoutput$sims.array, 
+                                                jagsM12.12$BUGSoutput$sims.array,
+                                                jagsM12.13$BUGSoutput$sims.array,
+                                                jagsM12.14$BUGSoutput$sims.array,
+                                                jagsM12.15$BUGSoutput$sims.array,
+                                                jagsM12.16$BUGSoutput$sims.array,
+                                                jagsM12.21$BUGSoutput$sims.array, 
+                                                jagsM12.22$BUGSoutput$sims.array,
+                                                jagsM12.23$BUGSoutput$sims.array,
+                                                jagsM12.24$BUGSoutput$sims.array,
+                                                jagsM12.25$BUGSoutput$sims.array,
+                                                jagsM12.26$BUGSoutput$sims.array, along= 1)
+
+    jagsM12.6c$n.iter<- iter*6 + iter2*12
+    jagsM12.6c$BUGSoutput$n.iter<- iter*6 + iter2*12
+    jagsM12.6c$BUGSoutput$n.burnin<- nb*6 + nb2*12
+    jagsM12.6c$BUGSoutput$n.keep<- (iter-nb)*6 + (iter2-nb2)*12
+    jagsM12.6c$BUGSoutput$n.sims<- (iter-nb)*6 + (iter2-nb2)*12
+
+###################################### end additional re-runs ######################################
+
+samM12<- jags2sam(jagsM12.6c)
+jamM12<- sim2jam(samM12,pregam.M12$pregam)
+
+pdf("GAM.M12outputBayes_splines.pdf")
+	plot(jamM12, pages= 0, scale= 0, scheme= 2)
+dev.off()
+
+fx.index.M12<- which(dimnames(jagsM12.6c$BUGSoutput$sims.array)[[3]] %in% paste("b[", 1:nfixed.M12, "]", sep= ""))
+dimnames(jagsM12.6c$BUGSoutput$sims.array)[[3]][fx.index.M12]<- fixed.names.M12
+
+jagsM12.mcmc <- as.mcmc(jagsM12.6c)
+
+summ.M12<- summary(jagsM12.mcmc[[1]][, fixed.names.M12], quantiles = c(0.025, 0.5, 0.975))
+summ.M12
+test.M12<- matrix(0 < summ.M12$quantiles[, "2.5%"] | 0 > summ.M12$quantiles[, "97.5%"])
+data.frame(fixed.names.M12, test.M12)
+
+pdf("GAM.M12outputBayes_traces_fixed.pdf", width= 7, height= 21)
+	xyplot(jagsM12.mcmc[[1]][, fixed.names.M12])
+dev.off()
+
+pdf("GAM.M12outputBayes_densityplots_fixed.pdf", width= 7, height= 15)
+	densityplot(jagsM12.mcmc[[1]][, fixed.names.M12])
+dev.off()
+
+pdf("GAM.M12outputBayes_traces_SplineCoefs.pdf", width= 21, height= 10)
+	NsplineCoefs.M12<- length(grep("b[", colnames(jagsM12.mcmc[[1]]), fixed= T)) + length(fixed.names.M12) - length(grep("studyID", pregam.M12$pregam$term.names))
+	SplCoefsNames.M12<- paste("b[", (length(fixed.names.M12)+1):(NsplineCoefs.M12), "]", sep= "")
+	datmp.M12<- jagsM12.mcmc[[1]][, SplCoefsNames.M12]
+	colnames(datmp.M12)<- pregam.M12$pregam$term.names[(length(fixed.names.M12)+1):(NsplineCoefs.M12)]
+	xyplot(datmp.M12, layout= c(5, 5, ceiling(length(SplCoefsNames.M12)/25)))
+dev.off()
+rm(datmp.M12)
+
+pdf("GAM.M12outputBayes_traces_MissingValues.pdf", width= 21, height= 10)
+	NmuCoefs.M12<- length(grep("studyID", pregam.M12$pregam$term.names))
+	datmp.mu.M12<- jagsM12.mcmc[[1]][, paste("b[", grep("studyID", pregam.M12$pregam$term.names), "]", sep= "")]
+	colnames(datmp.mu.M12)<- pregam.M12$pregam$term.names[grep("studyID", pregam.M12$pregam$term.names)]
+	xyplot(datmp.mu.M12, layout= c(5, 5, ceiling(NmuCoefs.M12/25)))
+	dev.off()
+rm(datmp.mu.M12)
+
+N.mu<- pregam.M12$jags.data$n # number of predicted values (number of observations)
+M12.predicted.1<- apply(jagsM12.mcmc[[1]][, paste("mu[", 1:N.mu, "]", sep= "")], 2, mean) # extract posterior mean of predicted values (on log scale)
+# level 1 residuals (around random effects)
+M12.observed<- pregam.M12$jags.data$y
+M12.residual.1<- M12.observed - M12.predicted.1 # residual's posterior mean
+# random effects
+M12.re.coef<- apply(jagsM12.mcmc[[1]][, paste("b[", grep("studyID", pregam.M12$pregam$term.names), "]", sep= "")], 2, mean)
+M12.re.pred<- pregam.M12$pregam$X[, grep("studyID", pregam.M12$pregam$term.names)] %*% M12.re.coef
+# level 0 residuals (around fixed effects, adding studyID random effects)
+M12.predicted.0<- M12.predicted.1 - M12.re.pred
+M12.residual.0<- M12.observed - M12.predicted.0  # M12.residual.1 + M12.re.pred
+
+pdf("GAM.M12_StandardDiagnostics.pdf", width= 8, height= 6)
+	par(mfrow= c(2, 2))
+	# observed ~ fitted.0
+	plot(M12.predicted.0, M12.observed, col= rgb(0, 0, 0, alpha= 0.35))
+	abline(0, 1, col= 2)
+	cor(M12.observed, M12.predicted.0) # 0.9528323
+	# observed ~ fitted.1
+	plot(M12.predicted.1, M12.observed, col= rgb(0, 0, 0, alpha= 0.35)) # overfitting
+	abline(0, 1, col= 2)
+	cor(M12.observed, M12.predicted.1) # 0.9528323
+	# residual ~ fitted
+	plot(M12.residual.0 ~ M12.predicted.0, col= rgb(0, 0, 0, alpha= 0.35)) # underestimation of low values and high values
+	abline(h= 0, col= 2)
+	# distribution of random effects
+	M12.re<- apply(jagsM12.mcmc[[1]][, paste("b[", grep("studyID.f", colnames(pregam.M12$jags.data$X)), "]", sep= "")], 2, mean)
+	hist(M12.re, nclass= 25)
+dev.off()
+
+source("PredictorsList9.txt")
+
+pdf("GAM.M12Explo_ResidualsPredictors.pdf", width= 6, height= 6)
+for(i in VOI2){
+	dat2plot<- data.frame(y= M12.residual.0, x= dat[sub.M12, i])
+	p<- ggplot(dat2plot, aes(y= y, x= x)) +
+	geom_point(col= rgb(0, 0, 0, 0.2)) +
+	xlab(i) + ylab("Model residuals") + ggtitle(i) +
+	geom_hline(yintercept= 0, col= "green") +
+	geom_smooth(col= "red", method= "loess", se= F, )
+	print(p)
+}
+for(i in groups){
+	dat2plot<- data.frame(y= M12.residual.0, x= factor(dat[sub.M12, i]))
+	p<- ggplot(dat2plot, aes(y= y, x= x)) +
+	geom_boxplot(col= rgb(0, 0, 0, 0.5)) +
+	geom_hline(yintercept= 0, col= "green") +
+	xlab(i) + ylab("Model residuals") + ggtitle(i) +
+	theme(axis.text.x=element_text(angle = -90, hjust = 0), plot.title = element_text(hjust = 0.5))
+	print(p)
+
+}
+dev.off()
+
+
+pdf("GAM.M12Explo_ResidualsStructure.pdf", width= 12, height= 4.5)
+dat2plot<- data.frame(M12.residual.0= M12.residual.0, M12.predicted.0= M12.predicted.0, Fertilizer= c("Control", "Fertilizer")[dat$Fert01[sub.M12]+1], logNdays= dat$logNdays[sub.M12], logN.rate= dat$logNrate.cent[sub.M12], NO3avail= c("lowNO3", "highNO3")[dat$highNO3[sub.M12]+1])
+	
+p<- ggplot(dat2plot, aes(y= M12.residual.0, x= M12.predicted.0, colour= logNdays)) +
+	geom_point(alpha= 1, size= 1) +
+	facet_wrap(~ Fertilizer * NO3avail) +
+	xlab("Fitted values") + ylab("Model residuals")
+print(p)
+
+p<- ggplot(dat2plot, aes(y= M12.residual.0, x= M12.predicted.0, colour= logN.rate)) +
+	geom_point(alpha= 1, size= 1) +
+	facet_wrap(~ Fertilizer * NO3avail) +
+	xlab("Fitted values") + ylab("Model residuals")
+print(p)
+
+dev.off()
+
+
+####### Predictions from M12
+
+extent[extent$LAT > 48 & extent$LAT < 54 & extent$LON > 6 & extent$LON < 15 & extent$DURATION.days > 363 & extent$DURATION.days <367, ] # subset climate data for Germany / 365 days
+
+hist(extent[extent$DURATION.days > 363 & extent$DURATION.days <367, "DegDays.exp"]) # subset climate data for 365 days # range ~ [1000, 10000]
+log(c(0, 1000, 10000) + 1500) - 8 # -0.6867796 -0.1759540  1.3501023
+
+hist(extent[, "DegDays.exp"], nclass= 500, xlim= c(0, 1000))
+log(c(0, 1000, 10000) + 1500) - 8 # -0.6867796 -0.1759540  1.3501023
+
+hist(extent[extent$DURATION.days > 363 & extent$DURATION.days <367, "WetDays.exp"]) # subset climate data for 365 days
+range(extent[extent$DURATION.days > 363 & extent$DURATION.days <367, "WetDays.exp"], na.rm= T) # subset climate data for 365 days # range ~ [30, 200]
+
+
+df.M12.complete<- function(x){ # function to compute transformed variables for prediction
+    x$logCarbon<- log(x$SOC + 1)
+    x$pH.cent<- x$pH - 7
+    x$logclay.imp.ct<- log(x$Clay / 100 + 1) - 0.24
+    x$logWetDays.exp.compact<- log(x$WetDays.exp+10) - 4
+    x$logDegDays.exp.compact<- log(x$DegDays.exp+1500) - 8
+    x$logNrate.cent.v2<- log(x$N.rate + 1) - 5
+    x$logNrate.cent.lowNO3<- x$logNrate.cent.v2 * x$Fert01 * x$lowNO3
+    x$logNrate.cent.highNO3<- x$logNrate.cent.v2 * x$Fert01 * x$highNO3
+    x
+}
+
+# !!!!!! do not compare predictions from Fert01 = 1 and N.rate = 0 with prediction from Fert01 = 0, 
+# because N.rate = 0 is out of the range of observed values (which is logNrate.cent.v2 ~ {-2, 2}) when Fert01 == 1
+# logNrate.cent.v2 ~ {-2, 2} equivalent to N.rate ~ {20, 1100}
+# instead, restrict range of N.rate to observed values (minimum 20 kg) and compare with Fert01 = 0
+
+
+# Nrate only
+ND.M12.Nrate<- data.frame(Fert01= 1, lowNO3= 1, highNO3= 0, Grasslands = FALSE, 
+	pH= 6.8, Clay= 25, SOC= 2, # pH @ median, Clay @ median, SOC @ 2%
+	WetDays.exp= 120, DegDays.exp= 3600, # @ Germany over 1 year
+    N.rate= seq(0, 1000, l= 50), studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.Nrate<- df.M12.complete(ND.M12.Nrate)
+plot(exp(predict(jamM12, newdata= ND.M12.Nrate)) ~ ND.M12.Nrate$N.rate)
+
+# pH only
+ND.M12.pH<- data.frame(Fert01= 0, lowNO3= 0, highNO3= 0, Grasslands = FALSE, 
+	pH= seq(5, 9, l= 25), Clay= 25, SOC= 2, # pH @ median, Clay @ median, SOC @ 2%
+	WetDays.exp= 120, DegDays.exp= 3600, # @ Germany over 1 year
+    N.rate= 200, studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.pH<- df.M12.complete(ND.M12.pH)
+plot(exp(predict(jamM12, newdata= ND.M12.pH)) ~ ND.M12.pH$pH)
+
+# do not do this (cf note above):
+tmp<- data.frame(Fert01= c(0, 1), lowNO3= 0, highNO3= 0, Grasslands = FALSE, 
+	Clay= 25, SOC= 2, # pH @ median, Clay @ median, SOC @ 2%
+	WetDays.exp= 120, DegDays.exp= 3600, # @ Germany over 1 year
+    pH= 7, N.rate= 0, studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+tmp<- df.M12.complete(tmp)
+predict(jamM12, newdata= tmp, se.fit= F) # 1.1247374 0.6866758 this is problematic
+# try this instead:
+tmp<- data.frame(Fert01= c(0, 1, 1), lowNO3= c(0, 0, 1), highNO3= 0, Grasslands = FALSE, 
+	Clay= 25, SOC= 2, # pH @ median, Clay @ median, SOC @ 2%
+	WetDays.exp= 120, DegDays.exp= 3600, # @ Germany over 1 year
+    pH= 7, N.rate= c(0, 20, 20), studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+tmp<- df.M12.complete(tmp) # 1.124737 1.099385 1.115259 is about okay: don't want second to be too different from first
+predict(jamM12, newdata= tmp, se.fit= F)
+
+# pH and Grassland (baselines pH 7 and annual crops)
+ND.M12.basepH<- data.frame(Fert01= 0, lowNO3= 0, highNO3= 0, Grasslands = FALSE, 
+	Clay= 25, SOC= 2, # pH @ median, Clay @ median, SOC @ 2%
+	WetDays.exp= 120, DegDays.exp= 3600, # @ Germany over 1 year
+    expand.grid(pH= seq(7, 7, l= 4), N.rate= rep(20, l= 50)), studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.basepH<- df.M12.complete(ND.M12.basepH)
+range(predict(jamM12, newdata= ND.M12.basepH, se.fit= F))
+
+ND.M12.pH<- data.frame(Fert01= 1, lowNO3= 1, highNO3= 0, Grasslands = FALSE, 
+	Clay= 25, SOC= 2, # pH @ median, Clay @ median, SOC @ 2%
+	WetDays.exp= 120, DegDays.exp= 3600, # @ Germany over 1 year
+    expand.grid(pH= seq(5, 8, l= 4), N.rate= seq(20, 1000, l= 50)), studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.pH<- df.M12.complete(ND.M12.pH)
+range(predict(jamM12, newdata= ND.M12.pH, se.fit= F))
+
+ND.M12.pHGrass<- data.frame(Fert01= 1, lowNO3= 1, highNO3= 0, Grasslands = TRUE, 
+	Clay= 25, SOC= 2, # pH @ median, Clay @ median, SOC @ 2%
+	WetDays.exp= 120, DegDays.exp= 3600, # @ Germany over 1 year
+    expand.grid(pH= seq(5, 8, l= 4), N.rate= seq(20, 1000, l= 50)), studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.pHGrass<- df.M12.complete(ND.M12.pHGrass)
+range(predict(jamM12, newdata= ND.M12.pHGrass, se.fit= F))
+
+ND.M12.basepH.pred<- predict(jamM12, newdata= ND.M12.basepH, se.fit= F)
+ND.M12.pH$pred<- predict(jamM12, newdata= ND.M12.pH, se.fit= T)$fit - ND.M12.basepH.pred # remove baseline (ignore baseline prediction error)
+ND.M12.pHGrass$pred<- predict(jamM12, newdata= ND.M12.pHGrass, se.fit= T)$fit - ND.M12.basepH.pred # remove baseline (ignore baseline prediction error)
+ND.M12.pH$pred.se<- predict(jamM12, newdata= ND.M12.pH, se.fit= T)$se.fit
+ND.M12.pH$pred.exp<- exp(ND.M12.pH$pred)
+ND.M12.pH$fpH<- factor(ND.M12.pH$pH)
+ND.M12.pHGrass$pred.exp<- exp(ND.M12.pHGrass$pred)
+ND.M12.pHGrass$fpH<- factor(ND.M12.pHGrass$pH)
+
+plot(ND.M12.pH$pred.exp ~ ND.M12.pH$N.rate, col= NULL, xlab= "N application rate (kg)", ylab= "Multiplier for N rate")
+by(ND.M12.pH, ND.M12.pH$fpH, function(x) {lines(x$pred.exp ~ x$N.rate, col= x$fpH, lwd= 3)})
+by(ND.M12.pHGrass, ND.M12.pHGrass$fpH, function(x) {lines(x$pred.exp ~ x$N.rate, col= x$fpH, lwd= 3, lty= 3)})
+legend(400, 1.3, legend= c("pH= 5", "pH= 6", "pH= 7", "pH= 8"), fill= c(1, 2, 3, 4), border= "transparent", bty= "n", ncol= 2, yjust= 0)
+legend(400, 1.3, legend= c("Annual crop", "Grassland"), lty= c(1, 3), lwd= 3, col= c(1), bty= "n", ncol= 2, yjust= 1)
+
+
+# SOC (baseline SOC = 2%)
+ND.M12.baseSOC<- data.frame(Fert01= 0, lowNO3= 0, highNO3= 0, Grasslands = FALSE, 
+	Clay= 25, pH= 7, # SOC @ median, Clay @ median, SOC @ 2%
+	WetDays.exp= 120, DegDays.exp= 3600, # @ Germany over 1 year
+    expand.grid(SOC= seq(2, 2, l= 5), N.rate= rep(20, l= 50)), studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.baseSOC<- df.M12.complete(ND.M12.baseSOC)
+range(predict(jamM12, newdata= ND.M12.baseSOC, se.fit= F))
+
+ND.M12.SOC<- data.frame(Fert01= 1, lowNO3= 1, highNO3= 0, Grasslands = FALSE, 
+	Clay= 25, pH= 7, # SOC @ median, Clay @ median, SOC @ 2%
+	WetDays.exp= 120, DegDays.exp= 3600, # @ Germany over 1 year
+    expand.grid(SOC= seq(2, 6, l= 5), N.rate= seq(20, 1000, l= 50)), studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.SOC<- df.M12.complete(ND.M12.SOC)
+range(predict(jamM12, newdata= ND.M12.SOC, se.fit= F))
+
+ND.M12.baseSOC.pred<- predict(jamM12, newdata= ND.M12.baseSOC, se.fit= F)
+ND.M12.SOC$pred<- as.vector(predict(jamM12, newdata= ND.M12.SOC, se.fit= T)$fit) - as.vector(ND.M12.baseSOC.pred) # remove baseline (ignore baseline prediction error)
+ND.M12.SOC$pred.se<- predict(jamM12, newdata= ND.M12.SOC, se.fit= T)$se.fit
+ND.M12.SOC$pred.exp<- exp(ND.M12.SOC$pred)
+ND.M12.SOC$fSOC<- factor(ND.M12.SOC$SOC)
+
+par(mfrow= c(1, 2))
+
+plot(ND.M12.pH$pred.exp ~ ND.M12.pH$N.rate, col= NULL, xlab= "N application rate (kg)", ylab= "Multiplier for N rate", ylim= c(0.7, 4.5))
+by(ND.M12.pH, ND.M12.pH$fpH, function(x) {lines(x$pred.exp ~ x$N.rate, col= x$fpH, lwd= 3)})
+by(ND.M12.pHGrass, ND.M12.pHGrass$fpH, function(x) {lines(x$pred.exp ~ x$N.rate, col= x$fpH, lwd= 3, lty= 3)})
+legend(400, 1.3, legend= c("pH= 5", "pH= 6", "pH= 7", "pH= 8"), fill= c(1, 2, 3, 4), border= "transparent", bty= "n", ncol= 2, yjust= 0)
+legend(400, 1.3, legend= c("Annual crop", "Grassland"), lty= c(1, 3), lwd= 3, col= c(1), bty= "n", ncol= 1, yjust= 1, xjust= 0)
+
+plot(ND.M12.SOC$pred.exp ~ ND.M12.SOC$N.rate, col= NULL, xlab= "N application rate (kg)", ylab= "Multiplier for N rate", ylim= c(0.7, 4.5))
+by(ND.M12.SOC, ND.M12.SOC$fSOC, function(x) {lines(x$pred.exp ~ x$N.rate, col= x$fSOC, lwd= 3)})
+legend(400, 1.5, legend= c("SOC= 2", "SOC= 3", "SOC= 4", "SOC= 5", "SOC= 6"), fill= c(1, 2, 3, 4, 5, 6), border= "transparent", bty= "n", ncol= 2, yjust= 1)
+
+
+
+
+
+
+####### thresholds determination for multiplier factors (determined by Jon from graph of spline interaction Clay*WetDays)
+(exp(-0.1 + 0.24) - 1) * 100 # x$Clay threshold = 15%
+
+# fit curve for Degree-days effect (manual parameter tuning - nls didn't work)
+N<- 1000
+ND.M12.DDbaseline<- data.frame(Fert01= 1, lowNO3= 1, highNO3= 0, Grasslands = FALSE, 
+	pH= 6.8, Clay= 25, SOC= 2, # pH @ median, Clay @ median, DD @ 2%
+	WetDays.exp= 120, DegDays.exp= 0, # 0 as baseline (hypothetical "1-day experiment near freezing temperature")
+    N.rate= 100, studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.DDbaseline<- df.M12.complete(ND.M12.DDbaseline)
+ND.M12.DD<- data.frame(Fert01= 1, lowNO3= 1, highNO3= 0, Grasslands = FALSE, 
+	pH= 6.8, Clay= 25, SOC= 2, # pH @ median, Clay @ median, DD @ 2%
+	WetDays.exp= 120, DegDays.exp= seq(0, 10000, l= N),
+    N.rate= 100, studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.DD<- df.M12.complete(ND.M12.DD)
+
+ND.M12.DD$pred.exp<- exp(as.vector(predict(jamM12, newdata= ND.M12.DD, se.fit= F)) - as.vector(predict(jamM12, newdata= ND.M12.DDbaseline, se.fit= F))) # multiplier w.r.t. 0 degree-day
+ND.M12.DD$pred.exp.low<- exp(as.vector(predict(jamM12, newdata= ND.M12.DD, se.fit= T)$fit) - as.vector(predict(jamM12, newdata= ND.M12.DD, se.fit= T)$se.fit) - as.vector(predict(jamM12, newdata= ND.M12.DDbaseline, se.fit= F))) 
+ND.M12.DD$pred.exp.high<- exp(as.vector(predict(jamM12, newdata= ND.M12.DD, se.fit= T)$fit) + as.vector(predict(jamM12, newdata= ND.M12.DD, se.fit= T)$se.fit) - as.vector(predict(jamM12, newdata= ND.M12.DDbaseline, se.fit= F))) 
+
+par(mfrow= c(2, 2))
+plot(ND.M12.DD$pred.exp ~ ND.M12.DD$logDegDays.exp.compact)
+plot(log(ND.M12.DD$pred.exp) ~ ND.M12.DD$logDegDays.exp.compact)
+plot(ND.M12.DD$pred.exp ~ ND.M12.DD$DegDays.exp) # this one seems easier to model
+plot(log(ND.M12.DD$pred.exp) ~ ND.M12.DD$DegDays.exp)
+
+matplot(ND.M12.DD$DegDays.exp, as.matrix(ND.M12.DD[, c("pred.exp", "pred.exp.low", "pred.exp.high")]), type= "l", lty= c(1, 3, 3), col= 1, lwd= c(3, 1, 1), ylab= "Multiplier for N2O emissions\n(baseline=0 degree-days)", xlab= "Degree-days (Celcius)")
+a1<- 0.91; b1<- 0.9; c1<- 0.00017
+curve(1 + a1 * (1 - (1 - b1)^(c1 * x)), 0, 10000, col= 2, add= T)
+
+
+# Soil (Clay) * Wetness (WetDays.exp) interaction # baseline is Clay= 25% and WetDays.exp= 0 days
+N.sq<- 20
+N.rate.p<- 500
+ND.M12.baseWATERLOG<- data.frame(Fert01= 0, lowNO3= 0, highNO3= 0, Grasslands = FALSE, 
+	SOC= 2, pH= 7, # SOC @ median, SOC @ 2%
+	N.rate= N.rate.p, DegDays.exp= 3600, # @ Germany over 1 year
+    expand.grid(Clay= seq(25, 25, l= N.sq), WetDays.exp= rep(0, l= N.sq)), studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.baseWATERLOG<- df.M12.complete(ND.M12.baseWATERLOG)
+
+sq.clay<- seq(0, 60, l= N.sq)
+sq.WetDays<- seq(0, 200, l= N.sq)
+
+ND.M12.WATERLOG.common<- data.frame(Fert01= 0, lowNO3= 0, highNO3= 0, Grasslands = FALSE, 
+	SOC= 2, pH= 7, # SOC @ median, SOC @ 2%
+	N.rate= N.rate.p, DegDays.exp= 3600, # @ Germany over 1 year
+    expand.grid(Clay= sq.clay, WetDays.exp= sq.WetDays), studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.WATERLOG.common<- df.M12.complete(ND.M12.WATERLOG.common)
+
+ND.M12.WATERLOG.low<- data.frame(Fert01= 1, lowNO3= 1, highNO3= 0, Grasslands = FALSE, 
+	SOC= 2, pH= 7, # SOC @ median, SOC @ 2%
+	N.rate= N.rate.p, DegDays.exp= 3600, # @ Germany over 1 year
+    expand.grid(Clay= sq.clay, WetDays.exp= sq.WetDays), studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.WATERLOG.low<- df.M12.complete(ND.M12.WATERLOG.low)
+
+ND.M12.WATERLOG.high<- data.frame(Fert01= 1, lowNO3= 0, highNO3= 1, Grasslands = FALSE, 
+	SOC= 2, pH= 7, # SOC @ median, SOC @ 2%
+	N.rate= N.rate.p, DegDays.exp= 3600, # @ Germany over 1 year
+    expand.grid(Clay= sq.clay, WetDays.exp= sq.WetDays), studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.WATERLOG.high<- df.M12.complete(ND.M12.WATERLOG.high)
+
+ND.M12.baseWATERLOG.pred<- predict(jamM12, newdata= ND.M12.baseWATERLOG, se.fit= F)
+
+ND.M12.WATERLOG.common$pred<- as.vector(predict(jamM12, newdata= ND.M12.WATERLOG.common, se.fit= T)$fit) - as.vector(ND.M12.baseWATERLOG.pred) # remove baseline (ignore baseline prediction error)
+ND.M12.WATERLOG.common$pred.exp<- exp(ND.M12.WATERLOG.common$pred)
+ND.M12.WATERLOG.common.mat<- matrix(ND.M12.WATERLOG.common$pred.exp, length(sq.clay), length(sq.WetDays))
+
+ND.M12.WATERLOG.low$pred<- as.vector(predict(jamM12, newdata= ND.M12.WATERLOG.low, se.fit= T)$fit) - as.vector(ND.M12.baseWATERLOG.pred) # remove baseline (ignore baseline prediction error)
+ND.M12.WATERLOG.low$pred.exp<- exp(ND.M12.WATERLOG.low$pred)
+ND.M12.WATERLOG.low.mat<- matrix(ND.M12.WATERLOG.low$pred.exp, length(sq.clay), length(sq.WetDays))
+
+ND.M12.WATERLOG.high$pred<- as.vector(predict(jamM12, newdata= ND.M12.WATERLOG.high, se.fit= T)$fit) - as.vector(ND.M12.baseWATERLOG.pred) # remove baseline (ignore baseline prediction error)
+ND.M12.WATERLOG.high$pred.exp<- exp(ND.M12.WATERLOG.high$pred)
+ND.M12.WATERLOG.high.mat<- matrix(ND.M12.WATERLOG.high$pred.exp, length(sq.clay), length(sq.WetDays))
+
+rng<- c(range(c(ND.M12.WATERLOG.common$pred.exp, ND.M12.WATERLOG.low$pred.exp, ND.M12.WATERLOG.high$pred.exp)))
+theta.p<- -40
+phi.p<-  15
+pdf("M12_Fig_InterWATERLOG_Nrate500.pdf", width= 8, height= 8)
+par(mfrow= c(1, 1))
+persp(x= sq.clay, y= sq.WetDays, z= ND.M12.WATERLOG.low.mat, col= NULL, border= NULL, xlab= "% Clay", ylab= "Number of wet days", zlab= "Multiplier for N2O emissions", ticktype= "detailed", zlim= rng, theta= theta.p, phi= phi.p) -> res
+round(res, 3)
+sel<- dat$WetDays.exp < 200
+points(trans3d(jitter(dat$clay[sel], 2), jitter(dat$WetDays.exp[sel], 6), min(rng), pmat = res), col = rgb(0, 0, 0, 0.3), pch = 16, cex= 0.4)
+par(new= T)
+persp(x= sq.clay, y= sq.WetDays, z= ND.M12.WATERLOG.common.mat, col= NULL, border= rgb(0, 1, 0, 0.5), xlab= "", ylab= "", zlab= "", ticktype= "detailed", zlim= rng, theta= theta.p, phi= phi.p)
+par(new= T)
+persp(x= sq.clay, y= sq.WetDays, z= ND.M12.WATERLOG.high.mat, col= NULL, border= rgb(1, 0, 0, 0.5), xlab= "", ylab= "", zlab= "", ticktype= "detailed", zlim= rng, theta= theta.p, phi= phi.p)
+par(new= T)
+persp(x= sq.clay, y= sq.WetDays, z= ND.M12.WATERLOG.low.mat, col= NULL, border= rgb(0, 0, 0, 0.5), xlab= "", ylab= "", zlab= "", ticktype= "detailed", zlim= rng, theta= theta.p, phi= phi.p) -> res
+dev.off()
+
+# explore why the effect of Low- or High-NO3 vanishes at high N.rate: error in data transformation or property of the model??
+ND.M12.WATERLOG.test<- data.frame(Fert01= 1, lowNO3= 0, highNO3= 1, Grasslands = FALSE, 
+	SOC= 2, pH= 7, # SOC @ median, SOC @ 2%
+	DegDays.exp= 3600, # @ Germany over 1 year
+    expand.grid(N.rate= seq(20,1000, by= 10), Clay= 25, WetDays.exp= 100), studyID.f= " 32.58 119.702007 8  8120082007-08-152007-11-04") # some random studyID.f (the first one)
+ND.M12.WATERLOG.test<- df.M12.complete(ND.M12.WATERLOG.test)
+
+sel<- dat$WetDays.exp < 200
+par(mfrow= c(1, 3))
+hist(dat$logNrate.cent.v2)
+plot(ND.M12.WATERLOG.test$logclay.imp.ct, ND.M12.WATERLOG.test$logWetDays.exp.compact)
+points(dat$logclay.imp.ct[sel], dat$logWetDays.exp.compact[sel], col = rgb(1, 0, 0, 0.3), pch = 16)
+plot(ND.M12.WATERLOG.test$logNrate.cent.v2, ND.M12.WATERLOG.test$logNrate.cent.highNO3)
+points(dat$logNrate.cent.v2[sel], dat$logNrate.cent.highNO3[sel], col = rgb(1, 0, 0, 0.3), pch = 16)
+# not a data transformation issue.
+# This is a property of the model because logNrate.cent is negative below N.rate ~ 150 and positive above, therefore the effect cancels out at N.rate ~ 150
+
+plot(dat$logNrate.cent.v2, dat$N.rate)
+ND.M12.WATERLOG.test[, c("N.rate", "logNrate.cent.v2", "logNrate.cent.lowNO3", "logNrate.cent.highNO3")]
+

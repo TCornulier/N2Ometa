@@ -1,0 +1,3166 @@
+precrop	percrop_GROUP	"Precrop3cat (Perenial, Legumes, Other, Rice)"
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+fallow colonised with grass	bare/fallow	Perennial
+fallow colonised with grass	bare/fallow	Perennial
+fallow colonised with grass	bare/fallow	Perennial
+fallow colonised with grass	bare/fallow	Perennial
+fallow colonised with grass	bare/fallow	Perennial
+fallow colonised with grass	bare/fallow	Perennial
+NA	NA	NA
+fallow	bare/fallow	Perennial
+NA	NA	NA
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+NA	NA	NA
+fallow	bare/fallow	Perennial
+NA	NA	NA
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+rice wheat or rice rapeseed	cereal-cereal/legume rotations	others
+rice wheat or rice rapeseed	cereal-cereal/legume rotations	others
+rice wheat or rice rapeseed	cereal-cereal/legume rotations	others
+rice wheat or rice rapeseed	cereal-cereal/legume rotations	others
+rice wheat or rice rapeseed	cereal-cereal/legume rotations	others
+rice wheat or rice rapeseed	cereal-cereal/legume rotations	others
+NA	NA	NA
+Amaranth	cereals	others
+Turnip	vegetables	others
+NA	NA	NA
+Turnip	vegetables	others
+Amaranth	cereals	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+cereals	cereals	others
+cereals	cereals	others
+cereals	cereals	others
+cereals	cereals	others
+cereals	cereals	others
+cereals	cereals	others
+cereals	cereals	others
+cereals	cereals	others
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+cereals	cereals	others
+cereals	cereals	others
+cereals	cereals	others
+cereals	cereals	others
+miscanthus	"row crops (sugarcane, cotton, etc.)"	others
+miscanthus	"row crops (sugarcane, cotton, etc.)"	others
+miscanthus	"row crops (sugarcane, cotton, etc.)"	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+rye	cereals	others
+rye	cereals	others
+rye	cereals	others
+rye	cereals	others
+rye	cereals	others
+rye	cereals	others
+rye	cereals	others
+rye	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+Douglas fir forest	perennials (trees/forests/plantations)	Perennial
+Douglas fir forest	perennials (trees/forests/plantations)	Perennial
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+cucumber	vegetables	others
+cabbage	vegetables	others
+cucumber	vegetables	others
+cabbage	vegetables	others
+celery	vegetables	others
+chilli pepper	vegetables	others
+cucumber	vegetables	others
+cucumber	vegetables	others
+cabbage	vegetables	others
+cabbage	vegetables	others
+cucumber	vegetables	others
+cabbage	vegetables	others
+fallow	bare/fallow	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+Fallowed cropland	bare/fallow	Perennial
+Fallowed cropland	bare/fallow	Perennial
+Fallowed cropland	bare/fallow	Perennial
+Fallowed cropland	bare/fallow	Perennial
+Fallowed cropland	bare/fallow	Perennial
+Fallowed cropland	bare/fallow	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+permanent pasture	grassland/pasture/steppe/savanah	Perennial
+permanent pasture	grassland/pasture/steppe/savanah	Perennial
+permanent pasture	grassland/pasture/steppe/savanah	Perennial
+permanent pasture	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+none	NA	NA
+rye	cereals	others
+none	NA	NA
+rye	cereals	others
+rye	cereals	others
+none	NA	NA
+none	NA	NA
+rye	cereals	others
+rye	cereals	others
+none	NA	NA
+rye	cereals	others
+none	NA	NA
+none	NA	NA
+rye	cereals	others
+none	NA	NA
+rye	cereals	others
+none	NA	NA
+rye	cereals	others
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+spring wheat	cereals	others
+spring wheat	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+spring wheat	cereals	others
+spring wheat	cereals	others
+spring wheat	cereals	others
+spring wheat	cereals	others
+oats	cereals	others
+oats	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+Olive	perennials (trees/forests/plantations)	Perennial
+Olive	perennials (trees/forests/plantations)	Perennial
+Olive	perennials (trees/forests/plantations)	Perennial
+Olive	perennials (trees/forests/plantations)	Perennial
+Olive	perennials (trees/forests/plantations)	Perennial
+Olive	perennials (trees/forests/plantations)	Perennial
+Olive	perennials (trees/forests/plantations)	Perennial
+Olive	perennials (trees/forests/plantations)	Perennial
+Olive	perennials (trees/forests/plantations)	Perennial
+Olive	perennials (trees/forests/plantations)	Perennial
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+rapeseed	cereals	others
+maize	cereals	others
+winter wheat	cereals	others
+winter wheat	cereals	others
+maize	cereals	others
+rapeseed	cereals	others
+maize	cereals	others
+rapeseed	cereals	others
+winter wheat	cereals	others
+maize	cereals	others
+winter wheat	cereals	others
+rapeseed	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+Douglas fir	perennials (trees/forests/plantations)	Perennial
+Douglas fir	perennials (trees/forests/plantations)	Perennial
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+potato	vegetables	others
+potato	vegetables	others
+potato	vegetables	others
+potato	vegetables	others
+potato	vegetables	others
+potato	vegetables	others
+potato	vegetables	others
+potato	vegetables	others
+Oil palm	perennials (trees/forests/plantations)	Perennial
+Oil palm	perennials (trees/forests/plantations)	Perennial
+Oil palm	perennials (trees/forests/plantations)	Perennial
+Oil palm	perennials (trees/forests/plantations)	Perennial
+Oil palm	perennials (trees/forests/plantations)	Perennial
+Oil palm	perennials (trees/forests/plantations)	Perennial
+Oil palm	perennials (trees/forests/plantations)	Perennial
+Oil palm	perennials (trees/forests/plantations)	Perennial
+Oil palm	perennials (trees/forests/plantations)	Perennial
+Oil palm	perennials (trees/forests/plantations)	Perennial
+Oil palm	perennials (trees/forests/plantations)	Perennial
+Oil palm	perennials (trees/forests/plantations)	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+bare soil	bare/fallow	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+bare soil	bare/fallow	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+cereal silage	cereals	others
+cereal silage	cereals	others
+cereal silage	cereals	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+wheat	cereals	others
+wheat	cereals	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+soybean	legumes	legumes
+soybean	legumes	legumes
+maize	cereals	others
+maize	cereals	others
+soybean	legumes	legumes
+maize	cereals	others
+maize	cereals	others
+soybean	legumes	legumes
+maize	cereals	others
+maize	cereals	others
+soybean	legumes	legumes
+soybean	legumes	legumes
+maize	cereals	others
+maize	cereals	others
+soybean	legumes	legumes
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+sorghum	cereals	others
+sorghum	cereals	others
+sorghum	cereals	others
+sorghum	cereals	others
+sorghum	cereals	others
+sorghum	cereals	others
+rice rapeseed rotation	cereal-cereal/legume rotations	others
+rice rapeseed rotation	cereal-cereal/legume rotations	others
+rice rapeseed rotation	cereal-cereal/legume rotations	others
+rice rapeseed rotation	cereal-cereal/legume rotations	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+Woodland	perennials (trees/forests/plantations)	Perennial
+Woodland	perennials (trees/forests/plantations)	Perennial
+Woodland	perennials (trees/forests/plantations)	Perennial
+Woodland	perennials (trees/forests/plantations)	Perennial
+Woodland	perennials (trees/forests/plantations)	Perennial
+Woodland	perennials (trees/forests/plantations)	Perennial
+Woodland	perennials (trees/forests/plantations)	Perennial
+Woodland	perennials (trees/forests/plantations)	Perennial
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+cotton	"row crops (sugarcane, cotton, etc.)"	others
+cotton	"row crops (sugarcane, cotton, etc.)"	others
+cotton	"row crops (sugarcane, cotton, etc.)"	others
+cotton	"row crops (sugarcane, cotton, etc.)"	others
+cotton	"row crops (sugarcane, cotton, etc.)"	others
+NA	NA	NA
+NA	NA	NA
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+winter wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+winter wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+winter wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+winter wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+winter wheat	cereals	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+perennial pasture	grassland/pasture/steppe/savanah	Perennial
+perennial pasture	grassland/pasture/steppe/savanah	Perennial
+perennial pasture	grassland/pasture/steppe/savanah	Perennial
+perennial pasture	grassland/pasture/steppe/savanah	Perennial
+perennial pasture	grassland/pasture/steppe/savanah	Perennial
+perennial pasture	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+oats	cereals	others
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+forest	perennials (trees/forests/plantations)	Perennial
+forest	perennials (trees/forests/plantations)	Perennial
+forest	perennials (trees/forests/plantations)	Perennial
+forest	perennials (trees/forests/plantations)	Perennial
+tomato	vegetables	others
+tomato	vegetables	others
+tomato	vegetables	others
+tomato	vegetables	others
+alfalfa	legumes	legumes
+alfalfa	legumes	legumes
+tomato	vegetables	others
+alfalfa	legumes	legumes
+alfalfa	legumes	legumes
+alfalfa	legumes	legumes
+alfalfa	legumes	legumes
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+spring barley	cereals	others
+grassland	grassland/pasture/steppe/savanah	Perennial
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+spring barley	cereals	others
+rice	rice	rice
+rice	rice	rice
+fallow	bare/fallow	Perennial
+rice	rice	rice
+Milk vetch	legumes	legumes
+rice	rice	rice
+Milk vetch	legumes	legumes
+rice	rice	rice
+fallow	bare/fallow	Perennial
+rice	rice	rice
+cabbage	vegetables	others
+cucumber	vegetables	others
+cabbage	vegetables	others
+cucumber	vegetables	others
+cucumber	vegetables	others
+cucumber	vegetables	others
+garlic	vegetables	others
+cabbage	vegetables	others
+cucumber	vegetables	others
+cabbage	vegetables	others
+cucumber	vegetables	others
+cabbage	vegetables	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice	rice	rice
+maize	cereals	others
+rice	rice	rice
+maize	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+sugarcane	"row crops (sugarcane, cotton, etc.)"	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+vegetable	vegetables	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+NA	NA	NA
+lettuce	vegetables	others
+lettuce	vegetables	others
+lettuce	vegetables	others
+lettuce	vegetables	others
+lettuce	vegetables	others
+lettuce	vegetables	others
+lettuce	vegetables	others
+lettuce	vegetables	others
+lettuce	vegetables	others
+lettuce	vegetables	others
+lettuce	vegetables	others
+lettuce	vegetables	others
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+soybean	legumes	legumes
+soybean	legumes	legumes
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+soybean	legumes	legumes
+NA	NA	NA
+maize	cereals	others
+soybean	legumes	legumes
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+soybean	legumes	legumes
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+soybean	legumes	legumes
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+cereals	cereals	others
+cereals	cereals	others
+cereals	cereals	others
+cereals	cereals	others
+cereals	cereals	others
+cereals	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rapeseed	cereals	others
+rice	rice	rice
+rapeseed	cereals	others
+rice	rice	rice
+rapeseed	cereals	others
+rapeseed	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+rice	rice	rice
+rapeseed	cereals	others
+rice	rice	rice
+rapeseed	cereals	others
+rice	rice	rice
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat maize rotation	cereal-cereal/legume rotations 	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat maize rotation	cereal-cereal/legume rotations 	others
+wheat maize rotation	cereal-cereal/legume rotations 	others
+wheat maize rotation	cereal-cereal/legume rotations 	others
+wheat	cereals	others
+wheat maize rotation	cereal-cereal/legume rotations 	others
+maize-rygrass	cereal-cereal/legume rotations	others
+maize-rygrass	cereal-cereal/legume rotations	others
+maize-rygrass	cereal-cereal/legume rotations	others
+maize-rygrass	cereal-cereal/legume rotations	others
+maize-rygrass	cereal-cereal/legume rotations	others
+maize-rygrass	cereal-cereal/legume rotations	others
+maize-rygrass	cereal-cereal/legume rotations	others
+maize-rygrass	cereal-cereal/legume rotations	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+rice wheat rotation	cereal-cereal/legume rotations	others
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+lupin	legumes	legumes
+lupin	legumes	legumes
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat–fallow	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+barley	cereals	others
+winter beans	legumes	legumes
+winter oats	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+winter oats	cereals	others
+winter beans	legumes	legumes
+barley	cereals	others
+winter beans	legumes	legumes
+winter beans	legumes	legumes
+winter oats	cereals	others
+barley	cereals	others
+winter beans	legumes	legumes
+winter oats	cereals	others
+winter oats	cereals	others
+winter beans	legumes	legumes
+winter oats	cereals	others
+barley	cereals	others
+winter beans	legumes	legumes
+winter oats	cereals	others
+barley	cereals	others
+winter beans	legumes	legumes
+winter oats	cereals	others
+barley	cereals	others
+winter beans	legumes	legumes
+winter oats	cereals	others
+barley	cereals	others
+winter beans	legumes	legumes
+winter oats	cereals	others
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+fallow/grass	grassland/pasture/steppe/savanah	Perennial
+Rape/winter barley	cereal-cereal/legume rotations	others
+NA	NA	NA
+NA	NA	NA
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+perennial ryegrass	grassland/pasture/steppe/savanah	Perennial
+rice rapeseed rotation	cereal-cereal/legume rotations	others
+rice rapeseed rotation	cereal-cereal/legume rotations	others
+rice rapeseed rotation	cereal-cereal/legume rotations	others
+rice rapeseed rotation	cereal-cereal/legume rotations	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+soybean	legumes	legumes
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+maize	cereals	others
+soybean	legumes	legumes
+soybean	legumes	legumes
+wheat	cereals	others
+wheat	cereals	others
+soybean	legumes	legumes
+soybean	legumes	legumes
+wheat	cereals	others
+soybean	legumes	legumes
+wheat oat rotation	cereal-cereal/legume rotations	others
+maize	cereals	others
+wheat	cereals	others
+wheat oat rotation	cereal-cereal/legume rotations	others
+soybean	legumes	legumes
+maize	cereals	others
+maize	cereals	others
+soybean	legumes	legumes
+soybean	legumes	legumes
+maize	cereals	others
+maize	cereals	others
+soybean	legumes	legumes
+maize	cereals	others
+soybean	legumes	legumes
+soybean	legumes	legumes
+wheat	cereals	others
+soybean	legumes	legumes
+wheat	cereals	others
+wheat oat rotation	cereal-cereal/legume rotations	others
+soybean	legumes	legumes
+soybean	legumes	legumes
+wheat	cereals	others
+wheat	cereals	others
+wheat oat rotation	cereal-cereal/legume rotations	others
+soybean	legumes	legumes
+wheat	cereals	others
+soybean	legumes	legumes
+wheat	cereals	others
+wheat oat rotation	cereal-cereal/legume rotations	others
+wheat oat rotation	cereal-cereal/legume rotations	others
+soybean	legumes	legumes
+wheat	cereals	others
+wheat	cereals	others
+wheat oat rotation	cereal-cereal/legume rotations	others
+wheat	cereals	others
+soybean	legumes	legumes
+wheat	cereals	others
+wheat oat rotation	cereal-cereal/legume rotations	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+alfalfa	legumes	legumes
+wheat	cereals	others
+wheat	cereals	others
+maize	cereals	others
+alfalfa	legumes	legumes
+maize	cereals	others
+alfalfa	legumes	legumes
+maize	cereals	others
+alfalfa	legumes	legumes
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+tea	perennials (trees/forests/plantations)	Perennial
+tea	perennials (trees/forests/plantations)	Perennial
+tea	perennials (trees/forests/plantations)	Perennial
+tea	perennials (trees/forests/plantations)	Perennial
+tea	perennials (trees/forests/plantations)	Perennial
+tea	perennials (trees/forests/plantations)	Perennial
+rye	cereals	others
+rye	cereals	others
+rye	cereals	others
+rye	cereals	others
+rye	cereals	others
+rye	cereals	others
+rye	cereals	others
+rye	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+ryegrass	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+shortgrass steppe	grassland/pasture/steppe/savanah	Perennial
+shortgrass steppe	grassland/pasture/steppe/savanah	Perennial
+shortgrass steppe	grassland/pasture/steppe/savanah	Perennial
+shortgrass steppe	grassland/pasture/steppe/savanah	Perennial
+shortgrass steppe	grassland/pasture/steppe/savanah	Perennial
+shortgrass steppe	grassland/pasture/steppe/savanah	Perennial
+shortgrass steppe	grassland/pasture/steppe/savanah	Perennial
+shortgrass steppe	grassland/pasture/steppe/savanah	Perennial
+Irrigated rice	rice	rice
+Irrigated rice	rice	rice
+Irrigated rice	rice	rice
+Irrigated rice	rice	rice
+Irrigated rice	rice	rice
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+rice	rice	rice
+maize	cereals	others
+soybean	legumes	legumes
+rice	rice	rice
+rice	rice	rice
+maize	cereals	others
+rice	rice	rice
+maize	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+maize	cereals	others
+soybean	legumes	legumes
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+steppe	grassland/pasture/steppe/savanah	Perennial
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+rapeseed	cereals	others
+triticale	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+willow	perennials (trees/forests/plantations)	Perennial
+poplar	perennials (trees/forests/plantations)	Perennial
+poplar	perennials (trees/forests/plantations)	Perennial
+rapeseed	cereals	others
+rapeseed	cereals	others
+willow	perennials (trees/forests/plantations)	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+triticale	cereals	others
+willow	perennials (trees/forests/plantations)	Perennial
+NA	NA	NA
+poplar	perennials (trees/forests/plantations)	Perennial
+rapeseed	cereals	others
+poplar	perennials (trees/forests/plantations)	Perennial
+rye	cereals	others
+willow	perennials (trees/forests/plantations)	Perennial
+rapeseed	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+Populus without undersown grass	perennials (trees/forests/plantations)	Perennial
+Salix with undersown grass	perennials (trees/forests/plantations)	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+Populus without undersown grass	perennials (trees/forests/plantations)	Perennial
+Salix with undersown grass	perennials (trees/forests/plantations)	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+Salix with undersown grass	perennials (trees/forests/plantations)	Perennial
+Populus without undersown grass	perennials (trees/forests/plantations)	Perennial
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+Douglas fir	perennials (trees/forests/plantations)	Perennial
+Douglas fir	perennials (trees/forests/plantations)	Perennial
+Douglas fir	perennials (trees/forests/plantations)	Perennial
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+lettuce	vegetables	others
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+cabbage	vegetables	others
+lettuce	vegetables	others
+cabbage	vegetables	others
+cabbage	vegetables	others
+cabbage	vegetables	others
+cabbage	vegetables	others
+cabbage	vegetables	others
+lettuce	vegetables	others
+cabbage	vegetables	others
+NA	NA	NA
+cabbage	vegetables	others
+NA	NA	NA
+NA	NA	NA
+cabbage	vegetables	others
+cabbage	vegetables	others
+lettuce	vegetables	others
+cabbage	vegetables	others
+NA	NA	NA
+cabbage	vegetables	others
+maize	cereals	others
+lettuce	vegetables	others
+maize	cereals	others
+lettuce	vegetables	others
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+Black oat	cereals	others
+maize	cereals	others
+maize	cereals	others
+vetch	legumes	legumes
+Black oat	cereals	others
+maize	cereals	others
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+maize	cereals	others
+maize	cereals	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize	cereals	others
+maize	cereals	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize	cereals	others
+maize	cereals	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize	cereals	others
+maize	cereals	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize	cereals	others
+maize	cereals	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize	cereals	others
+maize	cereals	others
+maize-soybean rotation	cereal-cereal/legume rotations	others
+maize	cereals	others
+maize	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+pasture	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+maize	cereals	others
+soybean	legumes	legumes
+maize	cereals	others
+wheat	cereals	others
+soybean	legumes	legumes
+maize	cereals	others
+wheat	cereals	others
+soybean	legumes	legumes
+maize	cereals	others
+wheat	cereals	others
+soybean	legumes	legumes
+maize	cereals	others
+wheat	cereals	others
+soybean	legumes	legumes
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+dairy-grazed pasture	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+maize	cereals	others
+NA	NA	NA
+maize	cereals	others
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+maize	cereals	others
+grassland	grassland/pasture/steppe/savanah	Perennial
+grassland	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+onion	vegetables	others
+onion	vegetables	others
+onion	vegetables	others
+onion	vegetables	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+spring wheat	cereals	others
+spring wheat	cereals	others
+spring wheat	cereals	others
+maize	cereals	others
+cotton	"row crops (sugarcane, cotton, etc.)"	others
+wheat	cereals	others
+maize	cereals	others
+wheat	cereals	others
+cotton	"row crops (sugarcane, cotton, etc.)"	others
+maize	cereals	others
+wheat	cereals	others
+cotton	"row crops (sugarcane, cotton, etc.)"	others
+cotton	"row crops (sugarcane, cotton, etc.)"	others
+wheat	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+rice	rice	rice
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+maize	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+barley	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+peas	legumes	legumes
+peas	legumes	legumes
+peas	legumes	legumes
+peas	legumes	legumes
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+peas	legumes	legumes
+peas	legumes	legumes
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+peas	legumes	legumes
+peas	legumes	legumes
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+rapeseed	cereals	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+wheat maize rotation	cereal-cereal/legume rotations	others
+ryegrass with some white clover	grassland/pasture/steppe/savanah	Perennial
+ryegrass with some white clover	grassland/pasture/steppe/savanah	Perennial
+ryegrass with some white clover	grassland/pasture/steppe/savanah	Perennial
+ryegrass with some white clover	grassland/pasture/steppe/savanah	Perennial
+ryegrass with some white clover	grassland/pasture/steppe/savanah	Perennial
+NA	NA	NA
+NA	NA	NA
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+wheat	cereals	others
+fallow	bare/fallow	Perennial
+fallow	bare/fallow	Perennial
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
+NA	NA	NA
